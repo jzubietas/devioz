@@ -1,0 +1,22 @@
+[24-Apr-2023 12:08:26 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'sistemasdevioz'@'localhost' (using password: YES) in /home/atcwttgm/public_html/config/config.php on line 10
+[24-Apr-2023 12:10:52 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/1044): Access denied for user 'atcwttgm_devioz'@'localhost' to database 'atcwttgm_devioz' in /home/atcwttgm/public_html/config/config.php on line 10
+[24-Apr-2023 12:10:58 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/1044): Access denied for user 'atcwttgm_devioz'@'localhost' to database 'atcwttgm_devioz' in /home/atcwttgm/public_html/config/config.php on line 10
+[24-Apr-2023 12:14:48 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/atcwttgm/public_html/php/login.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/atcwttgm/public_html/php/login.php on line 11
+[03-May-2023 20:09:28 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'atcwttgm_devioz'@'localhost' (using password: YES) in /home/atcwttgm/public_html/config/config.php on line 10
+[03-May-2023 20:09:35 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'atcwttgm_devioz'@'localhost' (using password: YES) in /home/atcwttgm/public_html/config/config.php on line 10
+[03-May-2023 20:09:39 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'atcwttgm_devioz'@'localhost' (using password: YES) in /home/atcwttgm/public_html/config/config.php on line 10
+[03-May-2023 20:09:49 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'atcwttgm_devioz'@'localhost' (using password: YES) in /home/atcwttgm/public_html/config/config.php on line 10
+[03-May-2023 20:10:02 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'atcwttgm_devioz'@'localhost' (using password: YES) in /home/atcwttgm/public_html/config/config.php on line 10
+[03-May-2023 20:11:08 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'atcwttgm_devioz'@'localhost' (using password: YES) in /home/atcwttgm/public_html/config/config.php on line 10
+[04-May-2023 12:14:35 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'atcwttgm_devioz'@'localhost' (using password: YES) in /home/atcwttgm/public_html/config/config.php on line 10
+[04-May-2023 12:14:35 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'atcwttgm_devioz'@'localhost' (using password: YES) in /home/atcwttgm/public_html/config/config.php on line 10
+[04-May-2023 13:23:54 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'atcwttgm_devioz'@'localhost' (using password: YES) in /home/atcwttgm/public_html/config/config.php on line 10
+[04-May-2023 20:18:22 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'atcwttgm_devioz'@'localhost' (using password: YES) in /home/atcwttgm/public_html/config/config.php on line 10
+[04-May-2023 20:18:55 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'atcwttgm_devioz'@'localhost' (using password: YES) in /home/atcwttgm/public_html/config/config.php on line 10
+[04-May-2023 20:19:02 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'atcwttgm_devioz'@'localhost' (using password: YES) in /home/atcwttgm/public_html/config/config.php on line 10
+[06-May-2023 02:09:48 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'atcwttgm_devioz'@'localhost' (using password: YES) in /home/atcwttgm/public_html/config/config.php on line 10
+[07-May-2023 23:35:35 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'atcwttgm_devioz'@'localhost' (using password: YES) in /home/atcwttgm/public_html/config/config.php on line 10
+[07-May-2023 23:39:30 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/1044): Access denied for user 'atcwttgm_devioz'@'localhost' to database 'atcwttgm_devioz' in /home/atcwttgm/public_html/config/config.php on line 10
