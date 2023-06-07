@@ -47,6 +47,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('thoughts', ThoughtController::class);
 });
 
+Route::post('thoughts.update',[ThoughtController::class,'update'])->name('thoughts.update');
+
 Route::any('usuarios.storePerfil', [UsuarioController::class, 'storePerfil'])->name('usuarios.storePerfil');
 Route::any('home.changeBanner', [HomeController::class, 'changeBanner'])->name('home.changeBanner');
 Route::any('home.storeNosotros', [HomeController::class, 'storeNosotros'])->name('home.storeNosotros');

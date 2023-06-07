@@ -54,12 +54,14 @@
                     <a class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditFrontPageBannerModal"><i class="fa fa-pen"></i></a>
                 </div>
 
-                <div class="col-sm card text-white border-0 bg-teal text-center mb-2">
+                @foreach($thoughts as $thought)
+
+                <div class="col-sm card text-white border-0 {{ $thought->background_color }} text-center mb-2">
 
                     <div class="panel panel-inverse">
                         <div class="panel-heading ui-sortable-handle">
                             <div class="panel-heading-btn">
-                                <a class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditFrontPageBannerModal"><i class="fa fa-pen"></i></a>
+                                <a id="thought_edit_{{ $thought->id }}" class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditThoughtModal" data-thought="{{ $thought->id }}" data-description="{{ $thought->description }}" data-author="{{ $thought->author }}"><i class="fa fa-pen"></i></a>
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
                             </div>
@@ -67,60 +69,25 @@
                     </div>
                     <div class="card-body">
 
-                        <blockquote class="blockquote">
-                            <p> El software es <br />una gran combinación<br /> entre arte e ingeniería.</p>
+                        <blockquote class="blockquote">                            
+                            <p id="tuDescription_{{ $thought->id }}">{{ $thought->description }}</p>
                         </blockquote>
-                        <figcaption class="blockquote-footer mt-n2 mb-1 text-white text-opacity-75">
-                            Autor <cite title="Source Title">Bill Gates</cite>
+                        <figcaption class="blockquote-footer mt-n2 mb-1 {{ $thought->text_color }} text-opacity-75">
+                            Autor <cite title="Source Title" id="tuAuthor_{{ $thought->id }}">{{ $thought->author }}</cite>
                         </figcaption>
                     </div>
                 </div>
 
-
-                <div class="col-sm card text-white border-0 bg-blue text-center mb-2">
-                    <div class="panel panel-inverse">
-                        <div class="panel-heading ui-sortable-handle">
-                            <div class="panel-heading-btn">
-                                <a class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditFrontPageBannerModal"><i class="fa fa-pen"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <blockquote class="blockquote">
-                            <p class="mb-2">El diseño no es<br />lo que se ve y lo que se siente.<br /> El diseño es cómo funciona.</p>
-                        </blockquote>
-                        <figcaption class="blockquote-footer mt-n2 mb-1 text-white text-opacity-75">
-                            Autor <cite title="Source Title">Steve jobs</cite>
-                        </figcaption>
-                    </div>
-                </div>
+                @endforeach
 
 
-                <div class="col-sm card text-white border-0 bg-indigo text-center mb-2">
-                    <div class="panel panel-inverse">
-                        <div class="panel-heading ui-sortable-handle">
-                            <div class="panel-heading-btn">
-                                <a class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditFrontPageBannerModal"><i class="fa fa-pen"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <blockquote class="blockquote">
-                            <p class="mb-2">Especialmente en la tecnología,<br />necesitamos cambios revolucionarios,<br /> no cambios incrementales.</p>
-                        </blockquote>
-                        <figcaption class="blockquote-footer mt-n2 mb-1 text-white text-opacity-75">
-                            Autor <cite title="Source Title">Larry Page</cite>
-                        </figcaption>
-                    </div>
-                </div>
+                
 
 
             </div>
         </div>
+
+        @include('home.edit_thought')
 
         <div class="mb-10px fs-10px mt-20px"><b class="text-dark">Accesos Rápidos</b></div>
 
@@ -309,4 +276,5 @@
     </div>
 
 @endsection
+
 

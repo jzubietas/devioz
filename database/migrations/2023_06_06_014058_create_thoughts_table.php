@@ -17,6 +17,8 @@ class CreateThoughtsTable extends Migration
             $table->id();
             $table->string('description');
             $table->string('author')->nullable()->default('Anonimo');
+            $table->string('background_color')->nullable()->default('bg-teal');
+            $table->string('text_color')->nullable()->default('text-white');
             $table->timestamps();
         });
     }

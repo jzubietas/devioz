@@ -11,6 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class ThoughtController extends Controller
 {
@@ -93,19 +94,39 @@ class ThoughtController extends Controller
      * @param Request $request
      * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'description' => 'required',
+            'author' => 'required',
+            'thought' => 'required',
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors'=>$validator->errors()->all()]);
+        }
+        //return $request->all();
         $this->validate($request, [
             'description' => 'required',
             'author' => 'required',
+            'thought' => 'required',
         ]);
 
-        $thought = Thought::find($id);
+        $thought = Thought::find($request->thought);
         $thought->description = $request->input('description');
         $thought->author = $request->input('author');
         $thought->save();
 
-        return redirect()->route('thoughts.index');
+        return response()->json(
+            [
+                'success'=>'Informacion correctamente actualizada',
+                'description'=>$thought->description,
+                'author'=>$thought->author,
+                'identity' =>$thought->id
+            ]);
+
+        //return redirect()->route('thoughts.index');
     }
 
     /**
