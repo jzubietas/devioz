@@ -2,50 +2,48 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use App\Models\Thought;
 use DataTables;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
-class ThoughtController extends Controller
+class ServiceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Application|Factory|View|Response
-     */
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Thought::get();
+            $data = Service::get();
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = [];
 
-                    $btn[] = '<a class="btn btn-info" href="'.route('thoughts.show',$row->id).'">Ver</a>';
-                    $btn[] = '<a class="btn btn-primary" href="'.route('thoughts.edit',$row->id).'">Actualizar</a>';
+                    $btn[] = '<a class="btn btn-info" href="'.route('services.show',$row->id).'">Ver</a>';
+                    $btn[] = '<a class="btn btn-primary" href="'.route('services.edit',$row->id).'">Actualizar</a>';
                     return join('', $btn);
                 })
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('thoughts.index');
+        return view('services.index');
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Application|Factory|View
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('thoughts.create');
+        return view('services.create');
     }
 
     /**
@@ -61,9 +59,9 @@ class ThoughtController extends Controller
             'permission' => 'required',
         ]);
 
-        $thought = Thought::create(['name' => $request->input('name')]);
+        $service = Service::create(['name' => $request->input('name')]);
 
-        return redirect()->route('thoughts.index');
+        return redirect()->route('services.index');
     }
 
     /**
@@ -71,7 +69,7 @@ class ThoughtController extends Controller
      *
      * @return void
      */
-    public function show(Thought $thoughts)
+    public function show(Service $service)
     {
         //
     }
@@ -79,27 +77,29 @@ class ThoughtController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
+     * @param $id
      * @return Application|Factory|View
      */
     public function edit($id)
     {
-        $thought = Thought::find($id);
+        $service = Service::find($id);
 
-        return view('thoughts.edit',compact('thought'));
+        return view('services.edit',compact('service'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'description' => 'required',
-            'author' => 'required',
-            'thought' => 'required',
+            'photo' => 'nullable|image',
+            'titulo' => 'required',
+            'texto' => 'required',
+            'service' => 'required',
         ]);
 
         if ($validator->fails())
@@ -107,31 +107,37 @@ class ThoughtController extends Controller
             return response()->json(['errors'=>$validator->errors()->all()]);
         }
 
-        $thought = Thought::find($request->input('thought'));
-        $thought->description = $request->input('description');
-        $thought->author = $request->input('author');
-        $thought->save();
+        $service = Service::find($request->input('service'));
+        $service->description = $request->input('title');
+        $service->author = $request->input('text');
+
+        if ($request->file('photo')!=null)
+        {
+            $filename = $request->file('photo')->store('/', 'services');
+
+        }
+
+        $service->save();
 
         return response()->json(
             [
                 'success'=>'Informacion correctamente actualizada',
-                'description'=>$thought->description,
-                'author'=>$thought->author,
-                'identity' =>$thought->id
+                'description'=>$service->description,
+                'author'=>$service->author,
+                'identity' =>$service->id,
+                'photo' =>Storage::disk('banners')->url($filename),
             ]);
-
-        //return redirect()->route('thoughts.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param $id
+     * @param Service $service
      * @return RedirectResponse
      */
     public function destroy($id)
     {
-        Thought::find($id)->delete();
-        return redirect()->route('thoughts.index');
+        Service::find($id)->delete();
+        return redirect()->route('services.index');
     }
 }

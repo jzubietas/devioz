@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MyTestEmail;
 use App\Models\User;
 use App\Models\Thought;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -95,5 +97,33 @@ class HomeController extends Controller
         }
         return response()->json(['errors'=>$validator->errors()->all()]);
 
+    }
+
+    public function sendEmail(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'service' => 'required',
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors'=>$validator->errors()->all()]);
+        }
+
+        $details = [
+            'title' => 'Mail from DevIoz.com',
+            'body' => 'This is for testing email using smtp'
+        ];
+
+        Mail::to('jhonathanisaizubietasantos@gmail.com')->send(new MyTestEmail($details));
+
+        return response()->json(
+            [
+                'success'=>'Informacion enviada correctamente',
+                'mail'=>'jhonathanisaizubietasantos@gmail.com'
+            ]);
     }
 }

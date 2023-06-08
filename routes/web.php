@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\JobFunctionController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\ThoughtController;
 use Illuminate\Support\Facades\Route;
@@ -13,6 +14,7 @@ use App\Http\Controllers\BlogController;
 //use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\PermissionsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,9 +47,11 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('posts', PostController::class);
     Route::resource('jobsfunction', JobFunctionController::class);
     Route::resource('thoughts', ThoughtController::class);
+    Route::resource('services', ServiceController::class);
 });
 
 Route::post('thoughts.update',[ThoughtController::class,'update'])->name('thoughts.update');
+Route::post('services.update',[ServiceController::class,'update'])->name('services.update');
 
 Route::any('usuarios.storePerfil', [UsuarioController::class, 'storePerfil'])->name('usuarios.storePerfil');
 Route::any('home.changeBanner', [HomeController::class, 'changeBanner'])->name('home.changeBanner');
@@ -63,3 +67,6 @@ Route::get('educacion', [SiteController::class, 'educacion'])->name('educacion')
 Route::get('entretenimiento', [SiteController::class, 'entretenimiento'])->name('entretenimiento');
 Route::get('financiero', [SiteController::class, 'financiero'])->name('financiero');
 Route::get('software', [SiteController::class, 'software'])->name('software');
+
+Route::post('send-mail', [HomeController::class, 'sendEmail'])->name('send-mail');
+

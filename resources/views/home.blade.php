@@ -69,7 +69,7 @@
                     </div>
                     <div class="card-body">
 
-                        <blockquote class="blockquote">                            
+                        <blockquote class="blockquote">
                             <p id="tuDescription_{{ $thought->id }}">{{ $thought->description }}</p>
                         </blockquote>
                         <figcaption class="blockquote-footer mt-n2 mb-1 {{ $thought->text_color }} text-opacity-75">
@@ -81,7 +81,7 @@
                 @endforeach
 
 
-                
+
 
 
             </div>
@@ -113,67 +113,111 @@
                         <h4 class="card-title">Deseo solicitar un desarrollo web</h4>
                         <p class="card-text">Si te encuentras interesado en innovar tu empresa de forma web ingresa aqui.</p>
 
-                        <a href="javascript:" class="btn btn-sm btn-success">Solicitar</a>
+                        <a
+                            class="btn btn-sm btn-success"
+                            data-bs-toggle="modal"
+                            data-bs-target="#SendApplicationModal"
+                            data-service="Desarrollo Web">Solicitar</a>
                     </div>
 
                     <div class="tab-pane fade" id="card-pill-2">
                         <h4 class="card-title">Deseo solicitar un desarrollo móvil</h4>
                         <p class="card-text">Si tu propósito es ingresar en las plataformas IOS y Android, solicita tu aplicación multiplataforma.</p>
-                        <a href="javascript:" class="btn btn-sm btn-success">Solicitar</a>
+                        <a
+                            class="btn btn-sm btn-success"
+                            data-bs-toggle="modal"
+                            data-bs-target="#SendApplicationModal"
+                            data-service="Desarrollo Movil">Solicitar</a>
                     </div>
 
                     <div class="tab-pane fade" id="card-pill-3">
                         <h4 class="card-title">Deseo solicitar un normalización de BBDD</h4>
                         <p class="card-text">Si desear administrar tu data a otro nivel, solicita nuestros servicios de estandarización, normalización y automatización de Datos.</p>
-                        <a href="javascript:" class="btn btn-sm btn-success">Solicitar</a>
+                        <a
+                            class="btn btn-sm btn-success"
+                            data-bs-toggle="modal"
+                            data-bs-target="#SendApplicationModal"
+                            data-service="Normalizacion BBDD">Solicitar</a>
                     </div>
 
                     <div class="tab-pane fade" id="card-pill-4">
                         <h4 class="card-title">Deseo solicitar un Dashboard Corporativo</h4>
                         <p class="card-text">Si deseas visualizar tus KPI's de forma definitiva para la toma de desiciones, solicita nuestros servicios de visualizadores y Dashboard.</p>
-                        <a href="javascript:" class="btn btn-sm btn-success">Solicitar</a>
+                        <a
+                            class="btn btn-sm btn-success"
+                            data-bs-toggle="modal"
+                            data-bs-target="#SendApplicationModal"
+                            data-service="Dashboard Corporativo">Solicitar</a>
                     </div>
 
                     <div class="tab-pane fade" id="card-pill-5">
                         <h4 class="card-title">Deseo solicitar mejorar los procesos de mi empresa</h4>
                         <p class="card-text">Si deseas documentar, relacionar, ordenar y mejorar los procesos de tu compañia, solicita nuestros servicios de mejora de procesos TI.</p>
-                        <a href="javascript:" class="btn btn-sm btn-success">Solicitar</a>
+                        <a
+                            class="btn btn-sm btn-success"
+                            data-bs-toggle="modal"
+                            data-bs-target="#SendApplicationModal"
+                            data-service="Mejorar Procesos">Solicitar</a>
                     </div>
 
                     <div class="tab-pane fade" id="card-pill-6">
                         <h4 class="card-title">Deseo implementar la cultura DevOps en mi empresa</h4>
                         <p class="card-text">Si deseas implementar una arquitectura de negocio nueva para mejorar los procesos de desarrollo y gestión en tu empresa, solicita aqui.</p>
-                        <a href="javascript:" class="btn btn-sm btn-success">Solicitar</a>
+                        <a
+                            class="btn btn-sm btn-success"
+                            data-bs-toggle="modal"
+                            data-bs-target="#SendApplicationModal"
+                            data-service="Cultura DevOps">Solicitar</a>
                     </div>
 
                     <div class="tab-pane fade" id="card-pill-7">
                         <h4 class="card-title">Deseo implementar Automatización Robótica de Procesos</h4>
                         <p class="card-text">Se deseas utilizar automatizaciones para tareas repetitivas y manuales de un proceso de negocio, solicitalo ahora mismo.</p>
-                        <a href="javascript:" class="btn btn-sm btn-success">Solicitar</a>
+                        <a
+                            class="btn btn-sm btn-success"
+                            data-bs-toggle="modal"
+                            data-bs-target="#SendApplicationModal"
+                            data-service="Automatizacion Robotica">Solicitar</a>
                     </div>
 
                     <div class="tab-pane fade" id="card-pill-8">
                         <h4 class="card-title">Deseo innovar con procesos de gestión Big Data</h4>
                         <p class="card-text">Si deseas gestionar y analizar grandes volúmenes de datos, que son demasiado grandes y complejos para ser procesados por herramientas y tecnologías tradicionales. Solicítalo ahora.</p>
-                        <a href="javascript:" class="btn btn-sm btn-success">Solicitar</a>
+                        <a
+                            class="btn btn-sm btn-success"
+                            data-bs-toggle="modal"
+                            data-bs-target="#SendApplicationModal"
+                            data-service="Gestion Big Data">Solicitar</a>
                     </div>
 
                     <div class="tab-pane fade" id="card-pill-9">
                         <h4 class="card-title">Deseo solicitar soporte técnico de asistencia</h4>
                         <p class="card-text">Si solicitas asistencia técnica para resolver problemas con el hardware o software de una empresa. Hazlo aquí.</p>
-                        <a href="javascript:" class="btn btn-sm btn-success">Solicitar</a>
+                        <a
+                            class="btn btn-sm btn-success"
+                            data-bs-toggle="modal"
+                            data-bs-target="#SendApplicationModal"
+                            data-service="Soporte Tecnico Asistencia">Solicitar</a>
                     </div>
 
                     <div class="tab-pane fade" id="card-pill-10">
                         <h4 class="card-title">Deseo solicitar mejorar la seguridad de mis aplicaciones y datos</h4>
                         <p class="card-text">Si deseas protección de sistemas de la información y los datos que se almacenan, procesan y transmiten. Solicitalo ahora mismo.</p>
-                        <a href="javascript:" class="btn btn-sm btn-success">Solicitar</a>
+                        <a
+                            class="btn btn-sm btn-success"
+                            data-bs-toggle="modal"
+                            data-bs-target="#SendApplicationModal"
+                            data-service="Mejorar Seguridad Aplicaciones Datos">Solicitar</a>
                     </div>
 
 
                 </div>
             </div>
         </div>
+
+        @include('home.send_application')
+
+        @include('home.edit_service')
 
 
         <div class="col-xl-12">
