@@ -217,7 +217,7 @@
 
         @include('home.send_application')
 
-        @include('home.edit_service')
+
 
 
         <div class="col-xl-12">
@@ -226,6 +226,15 @@
             <div class="card-group">
 
                 <div class="card">
+                    <div class="panel panel-inverse">
+                        <div class="panel-heading ui-sortable-handle">
+                            <div class="panel-heading-btn">
+                                <a id="thought_edit_" class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditThoughtModal" data-thought="" data-description="" data-author=""><i class="fa fa-pen"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
+                            </div>
+                        </div>
+                    </div>
                     <img class="card-img-top" src="{{ asset('img/gallery/gallery-6.jpg') }}" alt="Card image cap" />
                     <div class="card-body">
                         <h4 class="card-title">Gestión de Procesos</h4>
@@ -236,6 +245,15 @@
 
 
                 <div class="card">
+                    <div class="panel panel-inverse">
+                        <div class="panel-heading ui-sortable-handle">
+                            <div class="panel-heading-btn">
+                                <a id="thought_edit_" class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditThoughtModal" data-thought="" data-description="" data-author=""><i class="fa fa-pen"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
+                            </div>
+                        </div>
+                    </div>
                     <img class="card-img-top" src="{{ asset('img/gallery/gallery-7.jpg') }}" alt="Card image cap" />
                     <div class="card-body">
                         <h4 class="card-title">DevOps</h4>
@@ -246,6 +264,15 @@
 
 
                 <div class="card">
+                    <div class="panel panel-inverse">
+                        <div class="panel-heading ui-sortable-handle">
+                            <div class="panel-heading-btn">
+                                <a id="thought_edit_" class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditThoughtModal" data-thought="" data-description="" data-author=""><i class="fa fa-pen"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
+                            </div>
+                        </div>
+                    </div>
                     <img class="card-img-top" src="{{ asset('img/gallery/gallery-8.jpg') }}" alt="Card image cap" />
                     <div class="card-body">
                         <h4 class="card-title">Desarrollo</h4>
@@ -256,6 +283,15 @@
 
 
                 <div class="card">
+                    <div class="panel panel-inverse">
+                        <div class="panel-heading ui-sortable-handle">
+                            <div class="panel-heading-btn">
+                                <a id="thought_edit_" class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditThoughtModal" data-thought="" data-description="" data-author=""><i class="fa fa-pen"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
+                            </div>
+                        </div>
+                    </div>
                     <img class="card-img-top" src="{{ asset('img/gallery/gallery-9.jpg') }}" alt="Card image cap" />
                     <div class="card-body">
                         <h4 class="card-title">Bases de Datos</h4>
@@ -267,6 +303,8 @@
             </div>
 
         </div>
+
+
 
         <div class="col-xl-12">
             <div class="mb-10px fs-10px mt-20px"><b class="text-dark">Nuestras Herramientas</b></div>
@@ -315,6 +353,8 @@
             </div>
 
         </div>
+
+        @include('home.edit_service')
 
 
     </div>
