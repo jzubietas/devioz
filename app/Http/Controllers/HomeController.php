@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Mail\MyTestEmail;
+use App\Models\Service;
+use App\Models\Tool;
 use App\Models\User;
 use App\Models\Thought;
 use Illuminate\Http\Request;
@@ -31,12 +33,17 @@ class HomeController extends Controller
     {
         $user = User::find(auth()->user()->id);
         $thoughts = Thought::get();
+        $services = Service::get();
+        $tools = Tool::get();
         setting()->load();
         $usTitle=setting()->get('usTitle');
         $usText=setting()->get('usText');
         $homeBanner=Storage::disk('banners')->url(setting()->get('HomePhoto'));
 
-        return view('home',compact('user','usTitle','usText','homeBanner','thoughts'));
+        return view('home',compact(
+            'user',
+            'usTitle',
+            'usText','homeBanner','thoughts','services','tools'));
     }
 
     public function storeNosotros(Request $request)

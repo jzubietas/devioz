@@ -3,25 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
-use App\Models\Thought;
+use App\Models\Tool;
 use DataTables;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
-class ServiceController extends Controller
+class ToolController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     */
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Service::get();
+            $data = Tool::get();
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = [];
@@ -33,7 +31,7 @@ class ServiceController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('services.index');
+        return view('tools.index');
     }
 
     /**
@@ -43,14 +41,14 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('services.create');
+        return view('tools.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @return RedirectResponse
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -59,9 +57,9 @@ class ServiceController extends Controller
             'permission' => 'required',
         ]);
 
-        $service = Service::create(['name' => $request->input('name')]);
+        $tool = Tool::create(['name' => $request->input('name')]);
 
-        return redirect()->route('services.index');
+        return redirect()->route('tools.index');
     }
 
     /**
@@ -69,7 +67,7 @@ class ServiceController extends Controller
      *
      * @return void
      */
-    public function show(Service $service)
+    public function show(Tool $tool)
     {
         //
     }
@@ -77,21 +75,21 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param $id
-     * @return Application|Factory|View
+     * @param  \App\Models\Tool  $tool
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $service = Service::find($id);
-
-        return view('services.edit',compact('service'));
+        $tool = Tool::find($id);
+        return view('tools.edit',compact('tool'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @return JsonResponse
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Tool  $tool
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request)
     {
@@ -99,7 +97,7 @@ class ServiceController extends Controller
             'photo' => 'nullable|image',
             'title' => 'required',
             'text' => 'required',
-            'service' => 'required',
+            'tool' => 'required',
         ]);
 
         if ($validator->fails())
@@ -107,38 +105,38 @@ class ServiceController extends Controller
             return response()->json(['errors'=>$validator->errors()->all()]);
         }
 
-        $service = Service::find($request->input('service'));
-        $service->title = $request->input('title');
-        $service->text = $request->input('text');
+        $tool = Tool::find($request->input('tool'));
+        $tool->title = $request->input('title');
+        $tool->text = $request->input('text');
 
         $filename=null;
         if ($request->file('photo')!=null)
         {
-            $filename = $request->file('photo')->store('/', 'services');
+            $filename = $request->file('photo')->store('/', 'tools');
 
         }
 
-        $service->save();
+        $tool->save();
 
         return response()->json(
             [
                 'success'=>'Informacion correctamente actualizada',
-                'title'=>$service->title,
-                'text'=>$service->text,
-                'identity' =>$service->id,
-                'photo' =>Storage::disk('services')->url($filename),
+                'title'=>$tool->title,
+                'text'=>$tool->text,
+                'identity' =>$tool->id,
+                'photo' =>Storage::disk('tools')->url($filename),
             ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param $id
-     * @return RedirectResponse
+     * @param  \App\Models\Tool  $tool
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
-        Service::find($id)->delete();
-        return redirect()->route('services.index');
+        Tool::find($id)->delete();
+        return redirect()->route('tools.index');
     }
 }

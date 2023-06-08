@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterUsersTable extends Migration
+class CreateToolsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class AlterUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('profile_picture')->after('remember_token');
-            $table->integer('role')->after('profile_picture');
-            $table->integer('post')->after('role');
-            $table->integer('function')->after('post');
+        Schema::create('tools', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('text')->nullable()->default('');
+            $table->string('photo')->nullable()->default('');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +29,6 @@ class AlterUsersTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('tools');
     }
 }

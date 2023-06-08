@@ -19,7 +19,8 @@ class SuperAdminSeeder extends Seeder
         $usuario=User::create([
             'name'=>'admin',
             'email'=>'admin@admin.com',
-            'password'=>bcrypt('12345678')
+            'password'=>bcrypt('12345678'),
+            'profile_picture'=>''
         ]);
         $rol=Role::create(['name'=>'Administrador']);
         $rol_d=Role::create(['name'=>'Desarrollo']);

@@ -17,8 +17,8 @@
                 <div class="panel-heading ui-sortable-handle">
                     <div class="panel-heading-btn">
                         <a class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditFrontPageBannerModal"><i class="fa fa-pen"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
+                        <a href="javascript:" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+                        <a href="javascript:" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
                     </div>
                 </div>
             </div>
@@ -29,8 +29,8 @@
                     <div class="panel-heading ui-sortable-handle">
                         <div class="panel-heading-btn">
                             <a class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditNosotrosModal"><i class="fa fa-pen"></i></a>
-                            <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
-                            <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
+                            <a href="javascript:" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+                            <a href="javascript:" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,9 @@
 
                 <div class="mb-10px fs-10px mt-10px">
                     <b class="text-dark">Nuestro Pensamiento</b>
-                    <a class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditFrontPageBannerModal"><i class="fa fa-pen"></i></a>
+                    @can('crear-pensamiento')
+                        <a class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditFrontPageBannerModal"><i class="fa fa-pen"></i></a>
+                    @endcan
                 </div>
 
                 @foreach($thoughts as $thought)
@@ -61,9 +63,13 @@
                     <div class="panel panel-inverse">
                         <div class="panel-heading ui-sortable-handle">
                             <div class="panel-heading-btn">
-                                <a id="thought_edit_{{ $thought->id }}" class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditThoughtModal" data-thought="{{ $thought->id }}" data-description="{{ $thought->description }}" data-author="{{ $thought->author }}"><i class="fa fa-pen"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
+                                @can('editar-pensamiento')
+                                    <a id="thought_edit_{{ $thought->id }}" class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditThoughtModal" data-thought="{{ $thought->id }}" data-description="{{ $thought->description }}" data-author="{{ $thought->author }}"><i class="fa fa-pen"></i></a>
+                                @endcan
+                                <a href="javascript:" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+                                @can('borrar-pensamiento')
+                                    <a href="javascript:" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
+                                @endcan
                             </div>
                         </div>
                     </div>
@@ -79,10 +85,6 @@
                 </div>
 
                 @endforeach
-
-
-
-
 
             </div>
         </div>
@@ -217,88 +219,39 @@
 
         @include('home.send_application')
 
-
-
-
         <div class="col-xl-12">
-            <div class="mb-10px fs-10px mt-20px"><b class="text-dark">Nuestros Servicios</b></div>
+            <div class="mb-10px fs-10px mt-20px">
+                <b class="text-dark">Nuestros Servicios</b>
+                @can('crear-servicio')
+                <a id="service_edit_" class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#CreateServiceModal" data-service="" data-title="" data-text=""><i class="fa fa-pen"></i></a>
+                @endcan
+            </div>
 
             <div class="card-group">
 
-                <div class="card">
-                    <div class="panel panel-inverse">
-                        <div class="panel-heading ui-sortable-handle">
-                            <div class="panel-heading-btn">
-                                <a id="thought_edit_" class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditThoughtModal" data-thought="" data-description="" data-author=""><i class="fa fa-pen"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
+                @foreach($services as $service)
+                    <div class="card">
+                        <div class="panel panel-inverse">
+                            <div class="panel-heading ui-sortable-handle">
+                                <div class="panel-heading-btn">
+                                    @can('editar-servicio')
+                                        <a id="service_edit_" class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditServiceModal" data-service="{{ $service->id }}" data-title="{{ $service->title }}" data-text="{{ $service->text }}"><i class="fa fa-pen"></i></a>
+                                    @endcan
+                                    <a href="javascript:" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+                                    @can('borrar-servicio')
+                                        <a href="javascript:" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
+                                    @endcan
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <img class="card-img-top" src="{{ asset('img/gallery/gallery-6.jpg') }}" alt="Card image cap" />
-                    <div class="card-body">
-                        <h4 class="card-title">Gestión de Procesos</h4>
-                        <p class="card-text">Un gestor realiza y coordina el trabajo en un proceso o procesos y gestiona el rendimiento de los procesos del proceso.</p>
-                        <!--<p class="card-text text-gray">Last updated 3 mins ago</p>-->
-                    </div>
-                </div>
-
-
-                <div class="card">
-                    <div class="panel panel-inverse">
-                        <div class="panel-heading ui-sortable-handle">
-                            <div class="panel-heading-btn">
-                                <a id="thought_edit_" class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditThoughtModal" data-thought="" data-description="" data-author=""><i class="fa fa-pen"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
-                            </div>
+                        <img id="serviceImg_{{ $service->id }}" class="card-img-top" src="{{ asset($service->photo) }}" alt="Card image cap" />
+                        <div class="card-body">
+                            <h4 id="serviceTitle_{{ $service->id }}" class="card-title">{{ $service->title }}</h4>
+                            <p id="serviceText_{{ $service->id }}" class="card-text">{{ $service->text }}</p>
+                            <!--<p class="card-text text-gray">Last updated 3 mins ago</p>-->
                         </div>
                     </div>
-                    <img class="card-img-top" src="{{ asset('img/gallery/gallery-7.jpg') }}" alt="Card image cap" />
-                    <div class="card-body">
-                        <h4 class="card-title">DevOps</h4>
-                        <p class="card-text">DevOps es un método de desarrollo de software que se centra en la colaboración, comunicación e integración entre los ingenieros de sistemas y los desarrolladores de software. </p>
-                        <!--<p class="card-text text-gray">Last updated 3 mins ago</p>-->
-                    </div>
-                </div>
-
-
-                <div class="card">
-                    <div class="panel panel-inverse">
-                        <div class="panel-heading ui-sortable-handle">
-                            <div class="panel-heading-btn">
-                                <a id="thought_edit_" class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditThoughtModal" data-thought="" data-description="" data-author=""><i class="fa fa-pen"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <img class="card-img-top" src="{{ asset('img/gallery/gallery-8.jpg') }}" alt="Card image cap" />
-                    <div class="card-body">
-                        <h4 class="card-title">Desarrollo</h4>
-                        <p class="card-text">Nuestros experimentados y capacitados expertos en TI ayudan a las empresas a mantenerse en contacto con desarrollos recientes, innovaciones y tecnología disruptiva.</p>
-                        <!--<p class="card-text text-gray">Last updated 3 mins ago</p>-->
-                    </div>
-                </div>
-
-
-                <div class="card">
-                    <div class="panel panel-inverse">
-                        <div class="panel-heading ui-sortable-handle">
-                            <div class="panel-heading-btn">
-                                <a id="thought_edit_" class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditThoughtModal" data-thought="" data-description="" data-author=""><i class="fa fa-pen"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
-                                <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <img class="card-img-top" src="{{ asset('img/gallery/gallery-9.jpg') }}" alt="Card image cap" />
-                    <div class="card-body">
-                        <h4 class="card-title">Bases de Datos</h4>
-                        <p class="card-text">Un conjunto de datos estructurados que pertenecen a un mismo contexto y, en cuanto a su función, se utiliza para administrar de forma electrónica grandes cantidades de información.</p>
-                        <!--<p class="card-text text-gray">Last updated 3 mins ago</p>-->
-                    </div>
-                </div>
+                @endforeach
 
             </div>
 
@@ -307,54 +260,46 @@
 
 
         <div class="col-xl-12">
-            <div class="mb-10px fs-10px mt-20px"><b class="text-dark">Nuestras Herramientas</b></div>
+            <div class="mb-10px fs-10px mt-20px">
+                <b class="text-dark">Nuestras Herramientas</b>
+                @can('crear-herramienta')
+                <a id="tool_edit_" class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#CreateToolModal" data-tool="" data-title="" data-text=""><i class="fa fa-pen"></i></a>
+                @endcan
+            </div>
 
             <div class="card-group">
 
-                <div class="card">
-                    <img class="card-img-top" src="{{ asset('img/gallery/gallery-6.jpg') }}" alt="Card image cap" />
-                    <div class="card-body">
-                        <h4 class="card-title">PHP STORM</h4>
-                        <p class="card-text">Un gestor realiza y coordina el trabajo en un proceso o procesos y gestiona el rendimiento de los procesos del proceso.</p>
-                        <!--<p class="card-text text-gray">Last updated 3 mins ago</p>-->
+                @foreach($tools as $tool)
+                    <div class="card">
+                        <div class="panel panel-inverse">
+                            <div class="panel-heading ui-sortable-handle">
+                                <div class="panel-heading-btn">
+                                    @can('editar-herramienta')
+                                    <a id="tool_edit_" class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditToolModal" data-tool="{{ $tool->id }}" data-title="{{ $tool->title }}" data-text="{{ $tool->text }}"><i class="fa fa-pen"></i></a>
+                                    @endcan
+                                    <a href="javascript:" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+                                    @can('borrar-herramienta')
+                                    <a href="javascript:" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
+                                    @endcan
+                                </div>
+                            </div>
+                        </div>
+                        <img id="toolImg_{{ $tool->id }}" class="card-img-top" src="{{ asset($tool->photo) }}" alt="Card image cap" />
+                        <div class="card-body">
+                            <h4 id="toolTitle_{{ $tool->id }}" class="card-title">{{ $tool->title }}</h4>
+                            <p id="toolText_{{ $tool->id }}" class="card-text">{{ $tool->text }}</p>
+                            <!--<p class="card-text text-gray">Last updated 3 mins ago</p>-->
+                        </div>
                     </div>
-                </div>
+                @endforeach
 
-
-                <div class="card">
-                    <img class="card-img-top" src="{{ asset('img/gallery/gallery-7.jpg') }}" alt="Card image cap" />
-                    <div class="card-body">
-                        <h4 class="card-title">SUBLIME</h4>
-                        <p class="card-text">DevOps es un método de desarrollo de software que se centra en la colaboración, comunicación e integración entre los ingenieros de sistemas y los desarrolladores de software. </p>
-                        <!--<p class="card-text text-gray">Last updated 3 mins ago</p>-->
-                    </div>
-                </div>
-
-
-                <div class="card">
-                    <img class="card-img-top" src="{{ asset('img/gallery/gallery-8.jpg') }}" alt="Card image cap" />
-                    <div class="card-body">
-                        <h4 class="card-title">Vue Js 2</h4>
-                        <p class="card-text">Nuestros experimentados y capacitados expertos en TI ayudan a las empresas a mantenerse en contacto con desarrollos recientes, innovaciones y tecnología disruptiva.</p>
-                        <!--<p class="card-text text-gray">Last updated 3 mins ago</p>-->
-                    </div>
-                </div>
-
-
-                <div class="card">
-                    <img class="card-img-top" src="{{ asset('img/gallery/gallery-9.jpg') }}" alt="Card image cap" />
-                    <div class="card-body">
-                        <h4 class="card-title">Mysql</h4>
-                        <p class="card-text">Un conjunto de datos estructurados que pertenecen a un mismo contexto y, en cuanto a su función, se utiliza para administrar de forma electrónica grandes cantidades de información.</p>
-                        <!--<p class="card-text text-gray">Last updated 3 mins ago</p>-->
-                    </div>
-                </div>
 
             </div>
 
         </div>
 
         @include('home.edit_service')
+        @include('home.edit_tool')
 
 
     </div>

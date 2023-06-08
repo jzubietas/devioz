@@ -29,6 +29,18 @@ return [
     */
 
     'disks' => [
+        'tools' => [
+            'driver' => 'local',
+            'root' => storage_path('app/tools'),
+            'url' => env('APP_URL').'/tools',
+            'visibility' => 'public',
+        ],
+        'services' => [
+            'driver' => 'local',
+            'root' => storage_path('app/services'),
+            'url' => env('APP_URL').'/services',
+            'visibility' => 'public',
+        ],
         'banners' => [
             'driver' => 'local',
             'root' => storage_path('app/banners'),
@@ -83,6 +95,8 @@ return [
         //public_path('storage') => storage_path('app/public'),
         public_path('fotos-de-usuarios') => storage_path('app/user-avatars'),
         public_path('banners') => storage_path('app/banners'),
+        public_path('services') => storage_path('app/services'),
+        public_path('tools') => storage_path('app/tools'),
     ],
 
 ];

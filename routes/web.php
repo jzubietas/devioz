@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\ThoughtController;
+use App\Http\Controllers\ToolController;
 use Illuminate\Support\Facades\Route;
 //agregamos los siguientes controladores
 use App\Http\Controllers\HomeController;
@@ -48,10 +49,12 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('jobsfunction', JobFunctionController::class);
     Route::resource('thoughts', ThoughtController::class);
     Route::resource('services', ServiceController::class);
+    Route::resource('tools', ToolController::class);
 });
 
 Route::post('thoughts.update',[ThoughtController::class,'update'])->name('thoughts.update');
 Route::post('services.update',[ServiceController::class,'update'])->name('services.update');
+Route::post('tools.update',[ToolController::class,'update'])->name('tools.update');
 
 Route::any('usuarios.storePerfil', [UsuarioController::class, 'storePerfil'])->name('usuarios.storePerfil');
 Route::any('home.changeBanner', [HomeController::class, 'changeBanner'])->name('home.changeBanner');
