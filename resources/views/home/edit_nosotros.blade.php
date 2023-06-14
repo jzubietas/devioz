@@ -2,9 +2,9 @@
     <div class="modal-dialog modal-lg">
         <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-success">
                 <h5 class="modal-title">Editar Nosotros</h5>
-                <button type="button" aria-label="Close" class="close outline-none" data-dismiss="modal">×</button>
+                <button type="button" aria-label="Close" class="close btn btn-md btn-icon btn-danger" data-bs-dismiss="modal"><i class="fa fa-times"></i></button>
             </div>
 
             <div class="alert alert-primary d-none" role="alert">
@@ -51,10 +51,8 @@
                         </div>
                     </div>
                     <div class="text-right">
-                        <button type="submit" class="btn btn-primary" id="btnUsEditSave" data-loading-text="<span class='spinner-border spinner-border-sm'></span> Processing..." tabindex="5">Save</button>
-                        <button type="button" class="btn btn-light ml-1 edit-cancel-margin margin-left-5"
-                                data-dismiss="modal">Cancel
-                        </button>
+                        <button type="submit" class="btn btn-primary" id="btnUsEditSave" data-loading-text="<span class='spinner-border spinner-border-sm'></span> Processing..." tabindex="5">Actualizar</button>
+                        <button type="button" class="btn btn-secondary ml-1 edit-cancel-margin margin-left-5" data-bs-dismiss="modal">Cancelar</button>
                     </div>
                 </div>
             </form>

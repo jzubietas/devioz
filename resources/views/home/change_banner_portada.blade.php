@@ -5,7 +5,7 @@
             <div class="modal-header bg-success">
                 <h5 class="modal-title">Actualizar datos de Portada</h5>
 
-                <button type="button" aria-label="Close" class="close btn btn-md btn-icon btn-danger" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                <button type="button" aria-label="Close" class="close btn btn-md btn-icon btn-danger" data-bs-dismiss="modal"><i class="fa fa-times"></i></button>
             </div>
             <form method="POST" id="editPortadaForm" enctype="multipart/form-data">
                 <div class="modal-body">
@@ -33,9 +33,7 @@
 
                     <div class="text-right">
                         <button type="submit" class="btn btn-primary" id="btnPrEditSave" data-loading-text="<span class='spinner-border spinner-border-sm'></span> Processing..." tabindex="5">Actualizar</button>
-                        <button type="button" class="btn btn-light ml-1 edit-cancel-margin margin-left-5"
-                                data-dismiss="modal">Cancelar
-                        </button>
+                        <button type="button" class="btn btn-secondary ml-1 edit-cancel-margin margin-left-5" data-bs-dismiss="modal">Cancelar</button>
                     </div>
                 </div>
             </form>
@@ -151,6 +149,8 @@
                     }
                 });
             });
+
+
         });
     </script>
 @endpush

@@ -51,9 +51,9 @@
 
                 <div class="mb-10px fs-10px mt-10px">
                     <b class="text-dark">Nuestro Pensamiento</b>
-                    @can('crear-pensamiento')
+                    {{--@can('crear-pensamiento')
                         <a class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditFrontPageBannerModal"><i class="fa fa-pen"></i></a>
-                    @endcan
+                    @endcan--}}
                 </div>
 
                 @foreach($thoughts as $thought)
@@ -222,9 +222,9 @@
         <div class="col-xl-12">
             <div class="mb-10px fs-10px mt-20px">
                 <b class="text-dark">Nuestros Servicios</b>
-                @can('crear-servicio')
+                {{--@can('crear-servicio')
                 <a id="service_edit_" class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#CreateServiceModal" data-service="" data-title="" data-text=""><i class="fa fa-pen"></i></a>
-                @endcan
+                @endcan--}}
             </div>
 
             <div class="card-group">
@@ -262,9 +262,9 @@
         <div class="col-xl-12">
             <div class="mb-10px fs-10px mt-20px">
                 <b class="text-dark">Nuestras Herramientas</b>
-                @can('crear-herramienta')
+                {{--@can('crear-herramienta')
                 <a id="tool_edit_" class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#CreateToolModal" data-tool="" data-title="" data-text=""><i class="fa fa-pen"></i></a>
-                @endcan
+                @endcan--}}
             </div>
 
             <div class="card-group">
