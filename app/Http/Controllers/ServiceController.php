@@ -58,7 +58,6 @@ class ServiceController extends Controller
             'photo' => 'nullable|image|dimensions:min_width=1280,min_height=800|max:5000',
             'title' => 'required',
             'text' => 'required',
-            'service' => 'required',
         ]);
 
         if ($validator->fails())

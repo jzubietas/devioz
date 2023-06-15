@@ -52,13 +52,22 @@ class ToolController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required|unique:roles,name',
-            'permission' => 'required',
+        $validator = Validator::make($request->all(), [
+            'photo' => 'nullable|image',
+            'title' => 'required',
+            'text' => 'required',
         ]);
 
-        $tool = Tool::create(['name' => $request->input('name')]);
+        if ($validator->fails())
+        {
+            return response()->json(['errors'=>$validator->errors()->all()]);
+        }
 
+        $tool = Thought::create([
+            'title' => $request->input('title'),
+            'text' => $request->input('text'),
+        ]);
+        
         return redirect()->route('tools.index');
     }
 
