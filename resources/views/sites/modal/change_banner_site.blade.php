@@ -7,6 +7,14 @@
 
                 <button type="button" aria-label="Close" class="close btn btn-md btn-icon btn-danger" data-bs-dismiss="modal"><i class="fa fa-times"></i></button>
             </div>
+
+            <div id="successAlertBannerSite" class="alert alert-success d-none" role="alert">
+                A simple success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+            </div>
+            <div id="errorAlertBannerSite" class="alert alert-danger d-none" role="alert">
+                A simple danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+            </div>
+
             <form method="POST" id="editSiteBannerForm" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="alert alert-danger d-none" id="editSiteBannerValidationErrorsBox"></div>
@@ -96,7 +104,7 @@
                 event.preventDefault();
 
                 const formData = new FormData();
-                const rubro = document.getElementById('sbRubro');
+                const rubro = $("#sbRubro").val();
                 formData.append('keySitePhoto', 'SitePhoto');
                 formData.append('keySiteRubro', rubro);
                 const fileField = document.getElementById('sbImage');                
@@ -118,7 +126,7 @@
                         console.log(response);
                         if (Object.keys(response).indexOf('errors') !== -1) {
                             console.log(" existe errores");
-                            var errorAlert = document.querySelector('#errorAlert');
+                            var errorAlert = document.querySelector('#errorAlertBannerSite');
 
                             var html_text = '<ul>';
 
@@ -140,7 +148,7 @@
                             console.log(response["photo"]);
                             document.getElementById("edit_preview_photo_sb").src = response["photo"];
 
-                            const successAlert = document.getElementById('successAlert');
+                            const successAlert = document.getElementById('successAlertBannerSite');
                             successAlert.innerHTML = response["success"]
                             successAlert.classList.remove('d-none');
                             setTimeout(function () {
@@ -149,7 +157,7 @@
 
                             $('#EditSiteBannerModal').modal('hide');
                             //cambiar el banner con la imagen
-                            document.getElementByClassName("site_banner_img").src = response["photo"];
+                            document.getElementsByClassName("site_banner_img").src = response["photo"];
                         }
                     },
                     error: function error(result) {

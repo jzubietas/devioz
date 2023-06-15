@@ -121,13 +121,15 @@ class SiteController extends Controller
     {
         setting()->load();
         $site_banner_img=setting()->get('SitePhoto'.'Alimentario');
+        $site_banner_img=Storage::disk('banners_site')->url($site_banner_img);
         return view('sites.alimentario',compact('site_banner_img'));
     }
 
     public function callcenter(Request $request)
     {
         setting()->load();
-        $site_banner_img=setting()->get('SitePhoto'.'Alimentario');
+        $site_banner_img=setting()->get('SitePhoto'.'CallCenter');
+        $site_banner_img=Storage::disk('banners_site')->url($site_banner_img);
         return view('sites.callcenter',compact('site_banner_img'));
     }
 
@@ -135,6 +137,7 @@ class SiteController extends Controller
     {
         setting()->load();
         $site_banner_img=setting()->get('SitePhoto'.'Comercio');
+        $site_banner_img=Storage::disk('banners_site')->url($site_banner_img);
         return view('sites.comercio',compact('site_banner_img'));
     }
 
@@ -142,6 +145,7 @@ class SiteController extends Controller
     {
         setting()->load();
         $site_banner_img=setting()->get('SitePhoto'.'Consultoras');
+        $site_banner_img=Storage::disk('banners_site')->url($site_banner_img);
         return view('sites.consultoras',compact('site_banner_img'));
     }
 
@@ -149,6 +153,7 @@ class SiteController extends Controller
     {
         setting()->load();
         $site_banner_img=setting()->get('SitePhoto'.'DesarrolloRural');
+        $site_banner_img=Storage::disk('banners_site')->url($site_banner_img);
         return view('sites.desarrollorural',compact('site_banner_img'));
     }
 
@@ -156,6 +161,7 @@ class SiteController extends Controller
     {
         setting()->load();
         $site_banner_img=setting()->get('SitePhoto'.'Educacion');
+        $site_banner_img=Storage::disk('banners_site')->url($site_banner_img);
         return view('sites.educacion',compact('site_banner_img'));
     }
 
@@ -163,6 +169,7 @@ class SiteController extends Controller
     {
         setting()->load();
         $site_banner_img=setting()->get('SitePhoto'.'Entretenimiento');
+        $site_banner_img=Storage::disk('banners_site')->url($site_banner_img);
         return view('sites.entretenimiento',compact('site_banner_img'));
     }
 
@@ -170,6 +177,7 @@ class SiteController extends Controller
     {
         setting()->load();
         $site_banner_img=setting()->get('SitePhoto'.'Financiero');
+        $site_banner_img=Storage::disk('banners_site')->url($site_banner_img);
         return view('sites.financiero',compact('site_banner_img'));
     }
 
@@ -177,6 +185,7 @@ class SiteController extends Controller
     {
         setting()->load();
         $site_banner_img=setting()->get('SitePhoto'.'Software');
+        $site_banner_img=Storage::disk('banners_site')->url($site_banner_img);
         return view('sites.software',compact('site_banner_img'));
     }
 
