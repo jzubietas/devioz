@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Site;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class SiteController extends Controller
 {
@@ -87,7 +89,7 @@ class SiteController extends Controller
     {
         // SIEMPRE valida tus datos
         $validator = Validator::make($request->all(), [
-            'photo' => 'nullable|image|dimensions:min_width=1484,min_height=530|max:5000',
+            'photo' => 'nullable|image|dimensions:min_width=1280,min_height=800|max:5000',
             'keySitePhoto'=>'required',
             'keySiteRubro'=>'required',
         ]);
@@ -107,7 +109,7 @@ class SiteController extends Controller
             return response()->json(
                 [
                     'success'=>'Informacion actualizada correctamente',
-                    'keySitePhoto'=>key_setting,
+                    'keySitePhoto'=>$key_setting,
                     'photo' =>Storage::disk('banners_site')->url($filename),
                 ]);
         }

@@ -42,7 +42,7 @@
 		</div>
 	</div>
 
-	@include('modal.change_banner_site')
+	@include('sites.modal.change_banner_site')
 	
 	
     

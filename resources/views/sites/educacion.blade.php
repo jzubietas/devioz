@@ -33,6 +33,8 @@
         </div>
     </div>
 
+    @include('sites.modal.change_banner_site')
+
     <div class="container">
         <div class="row">
 

@@ -64,6 +64,10 @@
       </div>
     </div>
 
+    @include('sites.modal.change_banner_site')
+
+    
+
 	<div class="col-xl-12">
 		<div class="mb-10px fs-10px mt-20px"><b class="text-dark">Nuestros Servicios</b></div>
 

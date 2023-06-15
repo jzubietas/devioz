@@ -3,7 +3,7 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header bg-success">
-                <h5 class="modal-title">Actualizar datos de banner</h5>
+                <h5 class="modal-title">Actualizar datos de banner en rubro <span id="title-rubro"></span></h5>
 
                 <button type="button" aria-label="Close" class="close btn btn-md btn-icon btn-danger" data-bs-dismiss="modal"><i class="fa fa-times"></i></button>
             </div>
@@ -17,7 +17,7 @@
                     <div class="row">
                         <div class="form-group col-sm-6 d-flex">
                             <div class="col-sm-4 col-md-6 pl-0 form-group">
-                                <label>Banner Image: <span class="text-danger">(1484 x 530 pixeles)</span></label>
+                                <label>Banner Image: <span class="text-danger">(1280 x 800 pixeles)</span></label>
                                 <br>
                                 <label
                                         class="image__file-upload btn btn-primary text-white"
@@ -57,6 +57,7 @@
                 var button = $(event.relatedTarget)
                 var sitebanner = button.data('rubro');
                 $('#sbRubro').val(sitebanner)
+                $('#title-rubro').html(sitebanner)
             })
 
             $(document).on('change', '#sbImage', function () {
