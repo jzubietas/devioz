@@ -45,28 +45,6 @@
 	@include('sites.modal.change_banner_site')
 	@include('sites.modal.edit_service_rubro')
 	
-	
-    
-    
-    <!-- #modal-dialog -->
-    <div class="modal fade" id="myModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Modal Title</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <p>Modal content goes here.</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
 	<div class="col-xl-12">
 		<div class="mb-10px fs-10px mt-20px"><b class="text-dark">Nuestros Servicios</b></div>
 
@@ -78,8 +56,9 @@
 			    <div class="panel panel-inverse">
         	        <div class="panel-heading ui-sortable-handle">
             	        <div class="panel-heading-btn">
-            	            <!-- toggler -->
-            	            <a href="#modal-alert" class="btn btn-xs btn-icon btn-success" data-toggle="panel-modal"><i class="fa fa-pen"></i></a>
+            	        	<a class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditServiceRubroModal" data-bs-rubro="Alimentario" data-rubro="Alimentario" data-bs-service="1" data-service="1"><i class="fa fa-pen"></i></a>
+
+            	           
                             <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
                             <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
                         </div>
@@ -101,7 +80,8 @@
 			    <div class="panel panel-inverse">
         	        <div class="panel-heading ui-sortable-handle">
             	        <div class="panel-heading-btn">
-                            <a href="javascript:;" class="btn btn-xs btn-icon btn-success" data-toggle="panel-reload"><i class="fa fa-pen"></i></a>
+            	        	<a class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditServiceRubroModal" data-bs-rubro="Alimentario" data-rubro="Alimentario" data-bs-service="1" data-service="1"><i class="fa fa-pen"></i></a>
+                            
                             <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
                             <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
                         </div>
@@ -122,7 +102,8 @@
 			    <div class="panel panel-inverse">
         	        <div class="panel-heading ui-sortable-handle">
             	        <div class="panel-heading-btn">
-                            <a href="javascript:;" class="btn btn-xs btn-icon btn-success" data-toggle="panel-reload"><i class="fa fa-pen"></i></a>
+            	        	<a class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditServiceRubroModal" data-bs-rubro="Alimentario" data-rubro="Alimentario" data-bs-service="1" data-service="1"><i class="fa fa-pen"></i></a>
+                           
                             <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
                             <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
                         </div>
@@ -143,7 +124,8 @@
 			    <div class="panel panel-inverse">
         	        <div class="panel-heading ui-sortable-handle">
             	        <div class="panel-heading-btn">
-                            <a href="javascript:;" class="btn btn-xs btn-icon btn-success" data-toggle="panel-reload"><i class="fa fa-pen"></i></a>
+            	        	<a class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditServiceRubroModal" data-bs-rubro="Alimentario" data-rubro="Alimentario" data-bs-service="1" data-service="1"><i class="fa fa-pen"></i></a>
+                           
                             <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
                             <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
                         </div>
