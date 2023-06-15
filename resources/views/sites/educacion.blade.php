@@ -34,6 +34,7 @@
     </div>
 
     @include('sites.modal.change_banner_site')
+    @include('sites.modal.edit_service_rubro')
 
     <div class="container">
         <div class="row">
