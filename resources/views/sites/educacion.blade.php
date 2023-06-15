@@ -10,11 +10,22 @@
 <h1 class="page-header">DevioZ <small> Desarrollo de Software.</small></h1>
 
 
-<div class="col-xl-12">
-    <div class="mb-10px fs-10px mt-10px"><b class="text-dark">Portada</b></div>
+<div class="col-xl-12">    
 
     <div class="card border-0">
-        <img class="card-img-top" src="{{ asset('img/gallery/gallery-1__1.jpg') }}" alt="" />
+        @can('editar-educacion-banner')
+        <div class="panel panel-inverse">
+            <div class="panel-heading ui-sortable-handle">
+                <div class="panel-heading-btn">
+                    <a class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditSiteBannerModal" data-bs-rubro="Educacion" data-rubro="Educacion"><i class="fa fa-pen"></i></a>
+                    {{--<a href="javascript:;" class="btn btn-xs btn-icon btn-success" data-toggle="panel-reload"><i class="fa fa-pen"></i></a>--}}
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
+                </div>
+            </div>
+        </div>
+        @endcan
+        <img class="card-img-top site_banner_img" src="{{ $site_banner_img }}" alt="" />
         <div class="card-body">
             <h4 class="card-title mb-3px">Nosotros</h4>
             <p class="card-text">Somos una empresa dedicada al desarrollo de Software, gestión y administración de bases de datos, big data, automatización, arquitectura devops, gestión de procesos para toda innovación TI.</p>

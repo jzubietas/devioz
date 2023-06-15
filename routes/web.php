@@ -59,6 +59,7 @@ Route::post('tools.update',[ToolController::class,'update'])->name('tools.update
 Route::any('usuarios.storePerfil', [UsuarioController::class, 'storePerfil'])->name('usuarios.storePerfil');
 Route::any('home.changeBanner', [HomeController::class, 'changeBanner'])->name('home.changeBanner');
 Route::any('home.storeNosotros', [HomeController::class, 'storeNosotros'])->name('home.storeNosotros');
+Route::any('site.changeBanner', [SiteController::class, 'changeBanner'])->name('site.changeBanner');
 Route::post('/setting/store', [SettingsController::class, 'settingStore'])->name('settings.store-setting');
 
 Route::get('alimentario', [SiteController::class, 'alimentario'])->name('alimentario');

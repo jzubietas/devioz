@@ -47,6 +47,12 @@ return [
             'url' => env('APP_URL').'/banners',
             'visibility' => 'public',
         ],
+        'banners_site' => [
+            'driver' => 'local',
+            'root' => storage_path('app/banners_site'),
+            'url' => env('APP_URL').'/banners_site',
+            'visibility' => 'public',
+        ],
 
         'avatars' => [
             'driver' => 'local',
@@ -95,6 +101,7 @@ return [
         //public_path('storage') => storage_path('app/public'),
         public_path('fotos-de-usuarios') => storage_path('app/user-avatars'),
         public_path('banners') => storage_path('app/banners'),
+        public_path('banners_site') => storage_path('app/banners_site'),
         public_path('services') => storage_path('app/services'),
         public_path('tools') => storage_path('app/tools'),
     ],

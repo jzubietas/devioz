@@ -83,49 +83,99 @@ class SiteController extends Controller
         //
     }
 
+    public function changeBanner(Request $request)
+    {
+        // SIEMPRE valida tus datos
+        $validator = Validator::make($request->all(), [
+            'photo' => 'nullable|image|dimensions:min_width=1484,min_height=530|max:5000',
+            'keySitePhoto'=>'required',
+            'keySiteRubro'=>'required',
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors'=>$validator->errors()->all()]);
+        }
+
+        if ($request->file('photo')!=null)
+        {
+            $filename = $request->file('photo')->store('/', 'banners_site');
+
+            setting()->load();
+            $key_setting=$request->keySitePhoto.$request->keySiteRubro;
+            setting([ $key_setting=> ($filename)])->save();
+            return response()->json(
+                [
+                    'success'=>'Informacion actualizada correctamente',
+                    'keySitePhoto'=>key_setting,
+                    'photo' =>Storage::disk('banners_site')->url($filename),
+                ]);
+        }
+        return response()->json(['errors'=>$validator->errors()->all()]);
+
+    }
+
     public function alimentario(Request $request)
     {
-        return view('sites.alimentario');
+        setting()->load();
+        $site_banner_img=setting()->get('SitePhoto'.'Alimentario');
+        return view('sites.alimentario',compact('site_banner_img'));
     }
 
     public function callcenter(Request $request)
     {
-        return view('sites.callcenter');
+        setting()->load();
+        $site_banner_img=setting()->get('SitePhoto'.'Alimentario');
+        return view('sites.callcenter',compact('site_banner_img'));
     }
 
     public function comercio(Request $request)
     {
-        return view('sites.comercio');
+        setting()->load();
+        $site_banner_img=setting()->get('SitePhoto'.'Comercio');
+        return view('sites.comercio',compact('site_banner_img'));
     }
 
     public function consultoras(Request $request)
     {
-        return view('sites.consultoras');
+        setting()->load();
+        $site_banner_img=setting()->get('SitePhoto'.'Consultoras');
+        return view('sites.consultoras',compact('site_banner_img'));
     }
 
     public function desarrollorural(Request $request)
     {
-        return view('sites.desarrollorural');
+        setting()->load();
+        $site_banner_img=setting()->get('SitePhoto'.'DesarrolloRural');
+        return view('sites.desarrollorural',compact('site_banner_img'));
     }
 
     public function educacion(Request $request)
     {
-        return view('sites.educacion');
+        setting()->load();
+        $site_banner_img=setting()->get('SitePhoto'.'Educacion');
+        return view('sites.educacion',compact('site_banner_img'));
     }
 
     public function entretenimiento(Request $request)
     {
-        return view('sites.entretenimiento');
+        setting()->load();
+        $site_banner_img=setting()->get('SitePhoto'.'Entretenimiento');
+        return view('sites.entretenimiento',compact('site_banner_img'));
     }
 
     public function financiero(Request $request)
     {
-        return view('sites.financiero');
+        setting()->load();
+        $site_banner_img=setting()->get('SitePhoto'.'Financiero');
+        return view('sites.financiero',compact('site_banner_img'));
     }
 
     public function software(Request $request)
     {
-        return view('sites.software');
+        setting()->load();
+        $site_banner_img=setting()->get('SitePhoto'.'Software');
+        return view('sites.software',compact('site_banner_img'));
     }
 
     public function update_site(Request $request, User $user)
