@@ -54,12 +54,32 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required|unique:roles,name',
-            'permission' => 'required',
+        $validator = Validator::make($request->all(), [
+            'photo' => 'nullable|image|dimensions:min_width=1280,min_height=800|max:5000',
+            'title' => 'required',
+            'text' => 'required',
+            'service' => 'required',
         ]);
 
-        $service = Service::create(['name' => $request->input('name')]);
+        if ($validator->fails())
+        {
+            return response()->json(['errors'=>$validator->errors()->all()]);
+        }
+
+        $service = Service::create([
+            'title' => $request->input('title'),
+            'text' => $request->input('text'),
+        ]);
+
+        $filename=null;
+        if ($request->file('photo')!=null)
+        {
+            $filename = $request->file('photo')->store('/', 'services');
+            $service->update([
+                'photo'=>$filename
+            ]);
+
+        }
 
         return redirect()->route('services.index');
     }
@@ -96,7 +116,7 @@ class ServiceController extends Controller
     public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'photo' => 'nullable|image',
+            'photo' => 'nullable|image|dimensions:min_width=1280,min_height=800|max:5000',
             'title' => 'required',
             'text' => 'required',
             'service' => 'required',
@@ -115,7 +135,7 @@ class ServiceController extends Controller
         if ($request->file('photo')!=null)
         {
             $filename = $request->file('photo')->store('/', 'services');
-
+            $service->photo=$filename;
         }
 
         $service->save();

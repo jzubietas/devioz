@@ -15,7 +15,7 @@
                     <div class="row">
                         <div class="form-group col-sm-6 d-flex">
                             <div class="col-sm-4 col-md-6 pl-0 form-group">
-                                <label>Imagen Servicio:</label>
+                                <label>Imagen Servicio: <span class="text-danger">(1280 x 800 pixeles)</span></label>
                                 <br>
                                 <label
                                         class="image__file-upload btn btn-primary text-white"

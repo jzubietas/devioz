@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="form-group col-sm-6 d-flex">
                             <div class="col-sm-4 col-md-6 pl-0 form-group">
-                                <label>Portada Image:</label>
+                                <label>Portada Image: <span class="text-danger">(1484 x 530 pixeles)</span></label>
                                 <br>
                                 <label
                                         class="image__file-upload btn btn-primary text-white"

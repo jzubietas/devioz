@@ -56,12 +56,20 @@ class ThoughtController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required|unique:roles,name',
-            'permission' => 'required',
+        $validator = Validator::make($request->all(), [
+            'description' => 'required',
+            'author' => 'required',
         ]);
 
-        $thought = Thought::create(['name' => $request->input('name')]);
+        if ($validator->fails())
+        {
+            return response()->json(['errors'=>$validator->errors()->all()]);
+        }
+
+        $thought = Thought::create([
+            'description' => $request->input('description'),
+            'author' => $request->input('author'),
+        ]);
 
         return redirect()->route('thoughts.index');
     }

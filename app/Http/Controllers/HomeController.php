@@ -81,7 +81,7 @@ class HomeController extends Controller
     {
         // SIEMPRE valida tus datos
         $validator = Validator::make($request->all(), [
-            'photo' => 'nullable|image',
+            'photo' => 'nullable|image|dimensions:min_width=1484,min_height=530|max:5000',
         ]);
 
         if ($validator->fails())
