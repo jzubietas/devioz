@@ -16,7 +16,7 @@
         <div class="modal-content">
             <div class="modal-header bg-teal-700">
                 <h5 class="modal-title">Perfil</h5>
-                <button type="button" aria-label="Close" class="close outline-none" data-dismiss="modal">×</button>
+                <button type="button" aria-label="Close" class="close btn btn-md btn-icon btn-danger" data-bs-dismiss="modal"><i class="fa fa-times"></i></button>
             </div>
 
             <div class="alert alert-primary d-none" role="alert">

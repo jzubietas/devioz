@@ -3,8 +3,8 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Change Password</h5>
-                <button type="button" aria-label="Close" class="close outline-none" data-dismiss="modal">×</button>
+                <h5 class="modal-title">Cambiar Contraseña</h5>
+                <button type="button" aria-label="Close" class="close btn btn-md btn-icon btn-danger" data-bs-dismiss="modal"><i class="fa fa-times"></i></button>
             </div>
             <form method="POST" id='changePasswordForm'>
             <div class="modal-body">
