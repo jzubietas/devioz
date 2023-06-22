@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\JobFunctionController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RubroServicesController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\ThoughtController;
@@ -54,6 +55,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 Route::post('thoughts.update',[ThoughtController::class,'update'])->name('thoughts.update');
 Route::post('services.update',[ServiceController::class,'update'])->name('services.update');
+Route::post('servicesrubro.update',[RubroServicesController::class,'update'])->name('servicesrubro.update');
 Route::post('tools.update',[ToolController::class,'update'])->name('tools.update');
 
 Route::any('usuarios.storePerfil', [UsuarioController::class, 'storePerfil'])->name('usuarios.storePerfil');

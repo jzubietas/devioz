@@ -15,7 +15,7 @@
 	<li class="breadcrumb-item active">Portada</li>
 </ol>
 
-<center><h1 class="page-header">Rubro Alimentario</h1></center>  
+<center><h1 class="page-header">Rubro Alimentario</h1></center>
 
 
 
@@ -25,7 +25,7 @@
 	    @can('editar-alimentario-banner')
 	    <div class="panel panel-inverse">
 	      <div class="panel-heading ui-sortable-handle">
-    	    <div class="panel-heading-btn">    	            
+    	    <div class="panel-heading-btn">
     	      <a class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditSiteBannerModal" data-bs-rubro="Alimentario" data-rubro="Alimentario"><i class="fa fa-pen"></i></a>
             {{--<a href="javascript:;" class="btn btn-xs btn-icon btn-success" data-toggle="panel-reload"><i class="fa fa-pen"></i></a>--}}
             <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
@@ -44,28 +44,53 @@
 
 	@include('sites.modal.change_banner_site')
 	@include('sites.modal.edit_service_rubro')
-	
+
 	<div class="col-xl-12">
 		<div class="mb-10px fs-10px mt-20px"><b class="text-dark">Nuestros Servicios</b></div>
 
 		<div class="card-group">
 
+            @foreach($servicesrubro as $servicerubro)
+                <div class="card">
+                    <div class="panel panel-inverse">
+                        <div class="panel-heading ui-sortable-handle">
+                            <div class="panel-heading-btn">
+                                @can('editar-alimentario-servicio')
+                                    <a id="service_edit_" class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditServiceModal" data-service="{{ $servicerubro->id }}" data-title="{{ $servicerubro->title }}" data-text="{{ $servicerubro->text }}"><i class="fa fa-pen"></i></a>
+                                @endcan
+                                <a href="javascript:" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+                                @can('borrar-alimentario-servicio')
+                                    <a href="javascript:" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
+                                @endcan
+                            </div>
+                        </div>
+                    </div>
+                    <img id="servicerubroImg_{{ $servicerubro->id }}" class="card-img-top" src="{{ asset($servicerubro->photo) }}" alt="Card image cap" />
+                    <div class="card-body">
+                        <h4 id="servicerubroTitle_{{ $servicerubro->id }}" class="card-title">{{ $servicerubro->title }}</h4>
+                        <p id="servicerubroText_{{ $servicerubro->id }}" class="card-text">{{ $servicerubro->text }}</p>
+                        <!--<p class="card-text text-gray">Last updated 3 mins ago</p>-->
+                    </div>
+
+                </div>
+            @endforeach
+
 			<div class="card">
-			    
+
 			    @can('editar-alimentario-servicios')
 			    <div class="panel panel-inverse">
         	        <div class="panel-heading ui-sortable-handle">
             	        <div class="panel-heading-btn">
             	        	<a class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditServiceRubroModal" data-bs-rubro="Alimentario" data-rubro="Alimentario" data-bs-service="1" data-service="1"><i class="fa fa-pen"></i></a>
 
-            	           
+
                             <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
                             <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
                         </div>
             	    </div>
         	    </div>
         	    @endcan
-        	    
+
 				<img class="card-img-top" src="{{ asset('img/gallery/Bembos.jpg') }}" alt="Card image cap" />
 				<div class="card-body">
 					<h4 class="card-title">Bembos</h4>
@@ -81,7 +106,7 @@
         	        <div class="panel-heading ui-sortable-handle">
             	        <div class="panel-heading-btn">
             	        	<a class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditServiceRubroModal" data-bs-rubro="Alimentario" data-rubro="Alimentario" data-bs-service="1" data-service="1"><i class="fa fa-pen"></i></a>
-                            
+
                             <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
                             <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
                         </div>
@@ -103,7 +128,7 @@
         	        <div class="panel-heading ui-sortable-handle">
             	        <div class="panel-heading-btn">
             	        	<a class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditServiceRubroModal" data-bs-rubro="Alimentario" data-rubro="Alimentario" data-bs-service="1" data-service="1"><i class="fa fa-pen"></i></a>
-                           
+
                             <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
                             <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
                         </div>
@@ -125,7 +150,7 @@
         	        <div class="panel-heading ui-sortable-handle">
             	        <div class="panel-heading-btn">
             	        	<a class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditServiceRubroModal" data-bs-rubro="Alimentario" data-rubro="Alimentario" data-bs-service="1" data-service="1"><i class="fa fa-pen"></i></a>
-                           
+
                             <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
                             <a href="javascript:;" class="btn btn-xs btn-icon btn-danger" data-toggle="panel-remove"><i class="fa fa-times"></i></a>
                         </div>
@@ -145,5 +170,6 @@
 	</div>
 
 </div>
+
 
 @endsection

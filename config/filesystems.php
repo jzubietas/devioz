@@ -41,6 +41,12 @@ return [
             'url' => env('APP_URL').'/services',
             'visibility' => 'public',
         ],
+        'servicesrubro' => [
+            'driver' => 'local',
+            'root' => storage_path('app/servicesrubro'),
+            'url' => env('APP_URL').'/servicesrubro',
+            'visibility' => 'public',
+        ],
         'banners' => [
             'driver' => 'local',
             'root' => storage_path('app/banners'),
@@ -103,6 +109,7 @@ return [
         public_path('banners') => storage_path('app/banners'),
         public_path('banners_site') => storage_path('app/banners_site'),
         public_path('services') => storage_path('app/services'),
+        public_path('servicesrubro') => storage_path('app/servicesrubro'),
         public_path('tools') => storage_path('app/tools'),
     ],
 
