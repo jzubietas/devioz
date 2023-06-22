@@ -48,7 +48,7 @@
                         <div class="panel-heading ui-sortable-handle">
                             <div class="panel-heading-btn">
                                 @can('editar-comercio-servicios')
-                                    <a id="service_edit_" class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditServiceRubroModal" data-service="{{ $servicerubro->id }}" data-title="{{ $servicerubro->title }}" data-text="{{ $servicerubro->text }}"><i class="fa fa-pen"></i></a>
+                                    <a id="service_edit_" class="btn btn-xs btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#EditServiceRubroModal" data-servicerubro="{{ $servicerubro->id }}" data-title="{{ $servicerubro->title }}" data-text="{{ $servicerubro->text }}"><i class="fa fa-pen"></i></a>
                                 @endcan
                                 <a href="javascript:" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
                                 @can('borrar-comercio-servicios')
