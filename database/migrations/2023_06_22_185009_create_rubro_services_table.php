@@ -18,7 +18,7 @@ class CreateRubroServicesTable extends Migration
             $table->integer('id_rubro')->default(0)->nullable();
             $table->string('rubro');
             $table->string('title');
-            $table->string('text')->nullable()->default('');
+            $table->text('text')->nullable()->default('');
             $table->string('photo')->nullable()->default('');
             $table->timestamps();
         });
