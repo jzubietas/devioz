@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\RubroServices;
 use App\Models\Site;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -122,7 +123,8 @@ class SiteController extends Controller
         setting()->load();
         $site_banner_img=setting()->get('SitePhoto'.'Alimentario');
         $site_banner_img=Storage::disk('banners_site')->url($site_banner_img);
-        return view('sites.alimentario',compact('site_banner_img'));
+        $servicesrubro=RubroServices::query()->where('rubro','Alimentario')->get();
+        return view('sites.alimentario',compact('site_banner_img','servicesrubro'));
     }
 
     public function callcenter(Request $request)
@@ -130,7 +132,8 @@ class SiteController extends Controller
         setting()->load();
         $site_banner_img=setting()->get('SitePhoto'.'CallCenter');
         $site_banner_img=Storage::disk('banners_site')->url($site_banner_img);
-        return view('sites.callcenter',compact('site_banner_img'));
+        $servicesrubro=RubroServices::query()->where('rubro','CallCenter')->get();
+        return view('sites.callcenter',compact('site_banner_img','servicesrubro'));
     }
 
     public function comercio(Request $request)
@@ -138,7 +141,8 @@ class SiteController extends Controller
         setting()->load();
         $site_banner_img=setting()->get('SitePhoto'.'Comercio');
         $site_banner_img=Storage::disk('banners_site')->url($site_banner_img);
-        return view('sites.comercio',compact('site_banner_img'));
+        $servicesrubro=RubroServices::query()->where('rubro','Comercio')->get();
+        return view('sites.comercio',compact('site_banner_img','servicesrubro'));
     }
 
     public function consultoras(Request $request)
@@ -146,7 +150,8 @@ class SiteController extends Controller
         setting()->load();
         $site_banner_img=setting()->get('SitePhoto'.'Consultoras');
         $site_banner_img=Storage::disk('banners_site')->url($site_banner_img);
-        return view('sites.consultoras',compact('site_banner_img'));
+        $servicesrubro=RubroServices::query()->where('rubro','Consultora')->get();
+        return view('sites.consultoras',compact('site_banner_img','servicesrubro'));
     }
 
     public function desarrollorural(Request $request)
@@ -154,7 +159,8 @@ class SiteController extends Controller
         setting()->load();
         $site_banner_img=setting()->get('SitePhoto'.'DesarrolloRural');
         $site_banner_img=Storage::disk('banners_site')->url($site_banner_img);
-        return view('sites.desarrollorural',compact('site_banner_img'));
+        $servicesrubro=RubroServices::query()->where('rubro','Desarrollo Rural')->get();
+        return view('sites.desarrollorural',compact('site_banner_img','servicesrubro'));
     }
 
     public function educacion(Request $request)
@@ -162,7 +168,8 @@ class SiteController extends Controller
         setting()->load();
         $site_banner_img=setting()->get('SitePhoto'.'Educacion');
         $site_banner_img=Storage::disk('banners_site')->url($site_banner_img);
-        return view('sites.educacion',compact('site_banner_img'));
+        $servicesrubro=RubroServices::query()->where('rubro','Educacion')->get();
+        return view('sites.educacion',compact('site_banner_img','servicesrubro'));
     }
 
     public function entretenimiento(Request $request)
@@ -170,7 +177,8 @@ class SiteController extends Controller
         setting()->load();
         $site_banner_img=setting()->get('SitePhoto'.'Entretenimiento');
         $site_banner_img=Storage::disk('banners_site')->url($site_banner_img);
-        return view('sites.entretenimiento',compact('site_banner_img'));
+        $servicesrubro=RubroServices::query()->where('rubro','Entretenimiento')->get();
+        return view('sites.entretenimiento',compact('site_banner_img','servicesrubro'));
     }
 
     public function financiero(Request $request)
@@ -178,7 +186,8 @@ class SiteController extends Controller
         setting()->load();
         $site_banner_img=setting()->get('SitePhoto'.'Financiero');
         $site_banner_img=Storage::disk('banners_site')->url($site_banner_img);
-        return view('sites.financiero',compact('site_banner_img'));
+        $servicesrubro=RubroServices::query()->where('rubro','Financiero')->get();
+        return view('sites.financiero',compact('site_banner_img','servicesrubro'));
     }
 
     public function software(Request $request)
@@ -186,7 +195,8 @@ class SiteController extends Controller
         setting()->load();
         $site_banner_img=setting()->get('SitePhoto'.'Software');
         $site_banner_img=Storage::disk('banners_site')->url($site_banner_img);
-        return view('sites.software',compact('site_banner_img'));
+        $servicesrubro=RubroServices::query()->where('rubro','Software')->get();
+        return view('sites.software',compact('site_banner_img','servicesrubro'));
     }
 
     public function update_site(Request $request, User $user)
