@@ -11,6 +11,7 @@ use Spatie\Permission\Traits\HasRoles;
 class JobFunction extends Model
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    protected $guarded=['id'];
 
     protected $fillable = [
         'name',
