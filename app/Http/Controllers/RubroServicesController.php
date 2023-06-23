@@ -130,7 +130,7 @@ class RubroServicesController extends Controller
                 'title'=>$servicerubro->title,
                 'text'=>$servicerubro->text,
                 'identity' =>$servicerubro->id,
-                'photo' =>Storage::disk('services')->url($filename),
+                'photo' =>Storage::disk('servicesrubro')->url($filename),
             ]);
     }
 
