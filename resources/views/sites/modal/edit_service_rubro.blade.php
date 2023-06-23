@@ -6,6 +6,14 @@
                 <h5 class="modal-title">Actualizar servicio en Rubro</h5>
                 <button type="button" aria-label="Close" class="close btn btn-md btn-icon btn-danger" data-bs-dismiss="modal"><i class="fa fa-times"></i></button>
             </div>
+
+            <div id="successAlert" class="alert alert-success d-none" role="alert">
+                A simple success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+            </div>
+            <div id="errorAlert" class="alert alert-danger d-none" role="alert">
+                A simple danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+            </div>
+
             <form method="POST" id="editServiceRubroForm" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="alert alert-danger d-none" id="editServiceRubroValidationErrorsBox"></div>
@@ -169,7 +177,7 @@
                             successAlert.classList.remove('d-none');
                             setTimeout(function () {
                                 successAlert.classList.add('d-none');
-                            }, 5000);
+                            }, 500);
 
                             $('#EditServiceRubroModal').modal('hide');
                             document.getElementById("servicerubroImg_"+response["identity"]).src = response["photo"];
