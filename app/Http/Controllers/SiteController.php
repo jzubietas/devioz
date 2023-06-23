@@ -148,9 +148,9 @@ class SiteController extends Controller
     public function consultoras(Request $request)
     {
         setting()->load();
-        $site_banner_img=setting()->get('SitePhoto'.'Consultoras');
+        $site_banner_img=setting()->get('SitePhoto'.'Consultorias');
         $site_banner_img=Storage::disk('banners_site')->url($site_banner_img);
-        $servicesrubro=RubroServices::query()->where('rubro','Consultora')->get();
+        $servicesrubro=RubroServices::query()->where('rubro','Consultoria')->get();
         return view('sites.consultoras',compact('site_banner_img','servicesrubro'));
     }
 
