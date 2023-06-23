@@ -80,32 +80,6 @@ class ServiceRubroSeeder extends Seeder
             ]
         ]);
 
-        $servicesrubro=RubroServices::insert([
-            [
-                'rubro'=>'CallCenter',
-                'title'=>'Atento',
-                'text'=>'Brindar soluciones de atención al cliente y servicios de relación con los consumidores para ayudar a las empresas a lograr sus objetivos comerciales, mediante la aplicación de tecnología y procesos eficientes, y garantizando la satisfacción de los clientes.',
-                'photo'=>'img/gallery/Atento.jpg'
-            ],
-            [
-                'rubro'=>'CallCenter',
-                'title'=>'Konecta',
-                'text'=>'Ser reconocidos como el principal socio estratégico para la gestión de la relación con los clientes y la externalización de procesos de negocio en el Perú, mediante la innovación constante, la excelencia operativa y el compromiso con la creación de valor sostenible para todas las partes interesadas.',
-                'photo'=>'img/gallery/Konecta.jpg'
-            ],
-            [
-                'rubro'=>'CallCenter',
-                'title'=>'Dynamicall',
-                'text'=>'Brindar una solución rápida y precisa a nuestros usuarios finales, logrando un alto nivel de satisfacción de nuestros clientes. Ser el mejor Contact Center en innovación, productividad y calidad de servicio para nuestros clientes y usuarios finales.',
-                'photo'=>'img/gallery/Dynamicall.jpg'
-            ],
-            [
-                'rubro'=>'CallCenter',
-                'title'=>'SCC',
-                'text'=>'Implementar procesos integrales y de calidad permanentemente adaptados a la realidad cambiante, con un equipo de personas  de enfoque flexible y orientado a lograr satisfacción, eficiencia sostenible y mejora continua.',
-                'photo'=>'img/gallery/SCC.jpg'
-            ]
-        ]);
 
         $servicesrubro=RubroServices::insert([
             [

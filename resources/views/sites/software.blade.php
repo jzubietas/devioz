@@ -58,7 +58,7 @@
                             </div>
                         </div>
                     </div>
-                    <img id="servicerubroImg_{{ $servicerubro->id }}" class="card-img-top" src="{{ asset($servicerubro->photo) }}" alt="Card image cap" />
+                    <img id="servicerubroImg_{{ $servicerubro->id }}" class="card-img-top" src="{{ Storage::disk('servicesrubro')->url($servicerubro->photo) }}" alt="Card image cap" />
                     <div class="card-body">
                         <h4 id="servicerubroTitle_{{ $servicerubro->id }}" class="card-title">{{ $servicerubro->title }}</h4>
                         <p id="servicerubroText_{{ $servicerubro->id }}" class="card-text">{{ $servicerubro->text }}</p>
