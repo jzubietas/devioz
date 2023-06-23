@@ -100,7 +100,8 @@ class RubroServicesController extends Controller
     public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'photo' => 'nullable|image|dimensions:min_width=1280,min_height=800|max:5000',
+            //'photo' => 'nullable|image|dimensions:min_width=1280,min_height=800|max:5000',
+            'photo' => 'nullable|image|max:5000',
             'title' => 'required',
             'text' => 'required',
             'servicerubro' => 'required',
