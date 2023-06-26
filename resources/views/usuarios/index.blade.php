@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-lg-12 ">
             <div class="float-md-start">
-                <h2>Usuasrios Gestion</h2>
+                <h2>Lista de USuarios Gestion</h2>
             </div>
             <div class="float-md-end">
                 <a class="btn btn-success" href="{{ route('usuarios.create') }}"> Crear nuevo usuario</a>
