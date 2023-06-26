@@ -42,13 +42,42 @@ class PermissionsController extends Controller
         ]);
     }
 
+    public function indexuser(Request $request)
+    {
+        $user=$request->user;
+        //$permissions = Permission::all();
+
+        if ($request->ajax()) {
+            $data = Permission::get();
+            return Datatables::of($data)->addIndexColumn()
+                ->addColumn('action', function($row){
+                    //<a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-info btn-sm">Edit</a>
+
+                    /*
+                     * {!! Form::open(['method' => 'DELETE','route' => ['permissions.destroy', $permission->id],'style'=>'display:inline']) !!}
+                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                            {!! Form::close() !!}
+                     * */
+
+                    $btn = '<a href="javascript:void(0)" class="btn btn-primary btn-sm">View</a>';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        return view('permissions.index', [
+            //'permissions' => $permissions
+        ]);
+    }
+
     /**
      * Show form for creating permissions
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
-    public function create() 
-    {   
+    public function create()
+    {
         return view('permissions.create');
     }
 
@@ -59,7 +88,7 @@ class PermissionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
+    {
         $request->validate([
             'name' => 'required|unique:users,name'
         ]);
