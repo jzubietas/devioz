@@ -67,12 +67,10 @@
 
 @section('js')
     <script>
-        $(document).ready(function () {
-
-            var tables = $('#jobsfunction').DataTable();
+        window.onload = function(){
 
 
-            let table = $("#jobsfunctions").DataTable({
+            let table = $("#jobsfunction").DataTable({
                 dom:'<"row"<"col-sm-5"B><"col-sm-7"fr>>t<"row"<"col-sm-5"i><"col-sm-7"p>>',
                 processing: true,
                 serverSide: true,
@@ -88,6 +86,11 @@
                     url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json',
                 },
             });
-        });
+
+        };
+        /*document.addEventListener('DOMContentLoaded', function () {
+
+
+        });*/
     </script>
 @stop
