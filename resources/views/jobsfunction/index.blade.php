@@ -66,9 +66,8 @@
 @endsection
 
 @section('js')
-    <script>
+    <script type="text/javascript">
         $(document).ready(function () {
-
 
             let table = $("#jobsfunction").DataTable({
                 dom:'<"row"<"col-sm-5"B><"col-sm-7"fr>>t<"row"<"col-sm-5"i><"col-sm-7"p>>',
