@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -150,13 +151,13 @@ class PermissionsController extends Controller
         $permission->update($request->only('name'));
 
         return redirect()->route('permissions.index')
-            ->withSuccess(__('Permission updated successfully.'));
+            ->withSuccess(__('Permiso actualizado exitosamente.'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param Permission $permission
      * @return Response
      */
     public function destroy(Permission $permission)
@@ -164,6 +165,6 @@ class PermissionsController extends Controller
         $permission->delete();
 
         return redirect()->route('permissions.index')
-            ->withSuccess(__('Permission deleted successfully.'));
+            ->withSuccess(__('Permiso eliminado exitosamente.'));
     }
 }
