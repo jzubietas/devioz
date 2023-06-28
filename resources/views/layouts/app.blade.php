@@ -15,6 +15,9 @@
     {{--<script src="{{ asset('plugins/ionicons/dist/ionicons/ionicons.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>--}}
 
     <link href="{{ asset('plugins/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
+
+    <link href="{{ asset('plugins/datatables.net-select-bs5/css/select.bootstrap5.min.css') }}" rel="stylesheet" />
+
     <link href="{{ asset('plugins/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('plugins/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css') }}" rel="stylesheet" />
     <style>
@@ -1038,6 +1041,9 @@
 
 <script src="{{ asset('plugins/datatables.net/js/jquery.dataTables.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
 <script src="{{ asset('plugins/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
+
+<script src="{{ asset('plugins/datatables.net-select-bs5/js/select.bootstrap5.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
+
 <script src="{{ asset('plugins/datatables.net-responsive/js/dataTables.responsive.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
 <script src="{{ asset('plugins/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
 <script src="{{ asset('plugins/datatables.net-buttons/js/dataTables.buttons.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
