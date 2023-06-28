@@ -109,9 +109,8 @@
 
 @section('js')
     <script type="text/javascript">
-        $(function() {
-            let table = new DataTable('#permissions',
-                {
+        $(document).ready(function () {
+            let table = $("#permissions").DataTable({
                     dom:'<"row"<"col-sm-5"B><"col-sm-7"fr>>t<"row"<"col-sm-5"i><"col-sm-7"p>>',
                     processing: true,
                     serverSide: true,
