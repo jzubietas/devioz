@@ -57,7 +57,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label for="">Nombre del Rol:</label>
-                                {!! Form::text('name', $role->name, array('class' => 'form-control')) !!}
+                                {!! Form::text('name', null, array('class' => 'form-control')) !!}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 d-none">
@@ -87,7 +87,6 @@
                             <table id="permissions" class="table table-bordered permissions">
                                 <thead>
                                 <tr>
-                                    <th scope="col" class="align-middle">Item</th>
                                     <th >Action</th>
                                     <th>No</th>
                                     <th>Permiso</th>
@@ -110,8 +109,8 @@
 
 @section('js')
     <script type="text/javascript">
-        $( document ).ready(function() {
-            let table = DataTable('#permissions',
+        document.addEventListener('DOMContentLoaded', function () {
+            let table = new DataTable('#permissions',
                 {
                     dom:'<"row"<"col-sm-5"B><"col-sm-7"fr>>t<"row"<"col-sm-5"i><"col-sm-7"p>>',
                     processing: true,
@@ -123,20 +122,7 @@
                         }
                     },*/
                     ajax: "{{ route('permissions.index') }}",
-                    'columnDefs': [{
-                        'targets': [0], /* column index */
-                        'orderable': false, /* true or false */
-                    }],
                     columns: [
-                        {
-                            "data": "id",
-                            'targets': [0],
-                            'checkboxes': {
-                                'selectRow': true
-                            },
-                            defaultContent: '',
-                            orderable: false,
-                        },
                         {data: 'action', name: 'action', orderable: false, searchable: false},
 
                         {data: 'name', name: 'name'},
@@ -150,9 +136,6 @@
                         url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json',
                     },
                 });
-        })
-        document.addEventListener('DOMContentLoaded', function () {
-
         });
     </script>
 @stop
