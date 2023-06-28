@@ -118,8 +118,9 @@
             var rowsToDeselect = [];
             var selectAll = false;
 
-            let table = $("#permissions").DataTable({
-                    dom:'<"row"<"col-sm-5"B><"col-sm-7"fr>>t<"row"<"col-sm-5"i><"col-sm-7"p>>',
+            var table = $("#permissions").DataTable({
+                    dom: 'Bfrtip',
+                    //dom:'<"row"<"col-sm-5"B><"col-sm-7"fr>>t<"row"<"col-sm-5"i><"col-sm-7"p>>',
                     processing: true,
                     serverSide: true,
                     /*ajax: {
