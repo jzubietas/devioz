@@ -35,6 +35,10 @@
         {
             margin-bottom:16px !important;
         }
+
+        .select2-search { background-color: #00f; }
+        .select2-search input { background-color: #00f; }
+        .select2-results { background-color: #00f; }
     </style>
 
     @stack('css')
