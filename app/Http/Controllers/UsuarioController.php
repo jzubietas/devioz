@@ -41,8 +41,8 @@ class UsuarioController extends Controller
 
                     //$btn[] = '<a href="javascript:void(0)" class="btn btn-primary btn-sm">View</a>';
 
-                    $btn[] = '<a class="btn btn-info" href="'.route('usuarios.show',$row->id).'">Show</a>';
-                    $btn[] = '<a class="btn btn-primary" href="'.route('usuarios.edit',$row->id).'">Edit</a>';
+                    $btn[] = '<a class="btn btn-info" href="'.route('usuarios.show',$row->id).'">Detalle</a>';
+                    $btn[] = '<a class="btn btn-primary" href="'.route('usuarios.edit',$row->id).'">Actualizar</a>';
 
                     /*
                      * {!! Form::open(['method' => 'DELETE','route' => ['usuarios.destroy', $user->id],'style'=>'display:inline']) !!}
