@@ -26,6 +26,11 @@ class PermissionsController extends Controller
             $data = Permission::get();
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function($row){
+                    $btn = [];
+                    $btn[] = '<a class="btn btn-info" href="'.route('permissions.show',$row->id).'">Ver</a>';
+                    $btn[] = '<a class="btn btn-primary" href="'.route('permissions.edit',$row->id).'">Actualizar</a>';
+                    //<a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-info btn-sm">Edit</a>
+                    return join('', $btn);
                     //<a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-info btn-sm">Edit</a>
 
                     /*
