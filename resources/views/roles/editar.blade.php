@@ -192,10 +192,10 @@
                     ],
                     select: {
                         style: 'multi',
-                        info:false
-                        //selector: 'td:first-child'
+                        //info:false
+                        selector: 'td:first-child'
                     },
-                    order: [[0, 'asc']],
+                    order: [[0, 'desc']],
                 });
 
             table.on('draw', function () {
