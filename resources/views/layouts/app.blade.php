@@ -1035,35 +1035,35 @@
 @include('profile.change_password')
 
 
-<script src="{{ asset('js/vendor.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('js/app.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
+<script src="{{ asset('js/vendor.min.js') }}" ></script>
+<script src="{{ asset('js/app.min.js') }}" ></script>
 
 
-<script src="{{ asset('plugins/datatables.net/js/jquery.dataTables.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
+<script src="{{ asset('plugins/datatables.net/js/jquery.dataTables.min.js') }}" ></script>
+<script src="{{ asset('plugins/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}" ></script>
 
-<script src="{{ asset('plugins/datatables.net-select-bs5/js/select.bootstrap5.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
+<script src="{{ asset('plugins/datatables.net-select-bs5/js/select.bootstrap5.min.js') }}" ></script>
 
-<script src="{{ asset('plugins/datatables.net-responsive/js/dataTables.responsive.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/datatables.net-buttons/js/dataTables.buttons.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/datatables.net-buttons/js/buttons.colVis.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/datatables.net-buttons/js/buttons.flash.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/datatables.net-buttons/js/buttons.html5.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/datatables.net-buttons/js/buttons.print.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/pdfmake/build/pdfmake.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/pdfmake/build/vfs_fonts.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/jszip/dist/jszip.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
+<script src="{{ asset('plugins/datatables.net-responsive/js/dataTables.responsive.min.js') }}" ></script>
+<script src="{{ asset('plugins/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js') }}" ></script>
+<script src="{{ asset('plugins/datatables.net-buttons/js/dataTables.buttons.min.js') }}" ></script>
+<script src="{{ asset('plugins/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js') }}" ></script>
+<script src="{{ asset('plugins/datatables.net-buttons/js/buttons.colVis.min.js') }}" ></script>
+<script src="{{ asset('plugins/datatables.net-buttons/js/buttons.flash.min.js') }}" ></script>
+<script src="{{ asset('plugins/datatables.net-buttons/js/buttons.html5.min.js') }}" ></script>
+<script src="{{ asset('plugins/datatables.net-buttons/js/buttons.print.min.js') }}" ></script>
+<script src="{{ asset('plugins/pdfmake/build/pdfmake.min.js') }}" ></script>
+<script src="{{ asset('plugins/pdfmake/build/vfs_fonts.js') }}" ></script>
+<script src="{{ asset('plugins/jszip/dist/jszip.min.js') }}" ></script>
+
+
+
+
+<script src="{{ asset('plugins/@highlightjs/cdn-assets/highlight.min.js') }}" ></script>
+<script src="{{ asset('js/demo/render.highlight.js') }}" ></script>
 
 @stack('js')
 @yield('js')
-
-
-<script src="{{ asset('plugins/@highlightjs/cdn-assets/highlight.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('js/demo/render.highlight.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-
-
 
 </body>
 </html>
