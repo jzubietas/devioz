@@ -1065,10 +1065,5 @@
 
 
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3Q0VGQKY3" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script type="defa15012573cb4ced7d9c95-text/javascript">
-  
-</script>
-<script src="{{ asset('cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js') }}" data-cf-settings="defa15012573cb4ced7d9c95-|49" defer></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7cb9109cd87e9534","version":"2023.4.0","r":1,"token":"4db8c6ef997743fda032d4f73cfeff63","si":100}' crossorigin="anonymous"></script>
 </body>
 </html>
