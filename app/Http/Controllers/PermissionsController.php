@@ -111,6 +111,14 @@ class PermissionsController extends Controller
             ->withSuccess(__('Permission created successfully.'));
     }
 
+    public function show($id)
+    {
+        $permission = Permission::find($id);
+        //$roles = Role::pluck('name','name')->all();
+        //$userRole = $user->roles->pluck('name','name')->all();
+        return view('permissions.show',compact('permission'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
