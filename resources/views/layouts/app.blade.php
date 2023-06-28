@@ -1080,6 +1080,7 @@
         });
         $("select").select2({
             theme: "bootstrap-5",
+            containerCssClass : "bg-dark"
         });
     })
 </script>
