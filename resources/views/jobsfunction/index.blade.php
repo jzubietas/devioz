@@ -66,8 +66,8 @@
 @endsection
 
 @section('js')
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
+    <script>
+        $(document).ready(function () {
 
             let table = $("#jobsfunction").DataTable({
                 dom:'<"row"<"col-sm-5"B><"col-sm-7"fr>>t<"row"<"col-sm-5"i><"col-sm-7"p>>',
