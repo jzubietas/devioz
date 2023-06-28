@@ -174,6 +174,7 @@ class UsuarioController extends Controller
                     'sessions.id',
                     'sessions.user_id',
                     'sessions.ip_address',
+                    'sessions.user_agent',
                     'sessions.last_activity',
                     'u.email',
                     'u.name',

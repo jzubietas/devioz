@@ -45,6 +45,7 @@
                                 <th>No</th>
                                 <th>IP</th>
                                 <th>Ultima Actividad</th>
+                                <th>User Agente</th>
                                 <th>Email</th>
                                 <th>Rol</th>
                                 <th width="280px">Action</th>
@@ -82,6 +83,7 @@
                         {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                         {data: 'ip_address', name: 'ip_address'},
                         {data: 'last_activity', name: 'last_activity'},
+                        {data: 'user_agent', name: 'user_agent'},
                         {data: 'email', name: 'email'},
                         {data: 'name', name: 'name'},
                         {data: 'action', name: 'action', orderable: false, searchable: false},
