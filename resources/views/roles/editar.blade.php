@@ -87,10 +87,10 @@
                             <table id="permissions" class="table table-bordered permissions">
                                 <thead>
                                 <tr>
-                                    <th scope="col" class="align-middle">Item</th>
+                                    <th>Item</th>
                                     <th >Action</th>
-                                    <th>No</th>
-                                    <th>Permiso</th>
+                                    <th>Nombre</th>
+                                    {{--<th>Permiso</th>--}}
                                 </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -143,7 +143,7 @@
                         {data: 'action', name: 'action', orderable: false, searchable: false},
 
                         {data: 'name', name: 'name'},
-                        {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                        //{data: 'DT_RowIndex', name: 'DT_RowIndex'},
                         //{data: 'email', name: 'email'},
                         //{data: 'role', name: 'role'},
                     ],

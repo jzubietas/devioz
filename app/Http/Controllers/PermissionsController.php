@@ -25,7 +25,8 @@ class PermissionsController extends Controller
 
         if ($request->ajax()) {
             $data = Permission::get();
-            return Datatables::of($data)->addIndexColumn()
+            return Datatables::of($data)
+                //->addIndexColumn()
                 ->addColumn('action', function($row){
                     $btn = [];
                     $btn[] = '<a class="btn btn-info" href="'.route('permissions.show',$row->id).'">Ver</a>';
