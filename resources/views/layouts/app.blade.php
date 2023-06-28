@@ -39,7 +39,7 @@
         .select2-search { background-color: red; }
         .select2-search input { background-color: green; }
         .select2-selection__rendered{ color: white !important; }
-        
+
         .select2-results { background-color: yellow; }
     </style>
 
@@ -1067,7 +1067,7 @@
 <script src="{{ asset('plugins/jszip/dist/jszip.min.js') }}" ></script>
 
 <script src="{{ asset('plugins/select2/dist/js/select2.full.min.js') }}" ></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/i18n/es.js"></script>
 
 <script src="{{ asset('plugins/@highlightjs/cdn-assets/highlight.min.js') }}" ></script>
 <script src="{{ asset('js/demo/render.highlight.js') }}" ></script>
@@ -1077,6 +1077,7 @@
 
 <script>
     $(document).ready(function () {
+        $.fn.select2.defaults.set('language', 'es');
         $(document).on('select2:open', () => {
             document.querySelector('.select2-search__field').focus();
         });
