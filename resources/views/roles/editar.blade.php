@@ -133,7 +133,7 @@
                     columns: [
                         {
                             "data": "id",
-                            'targets': [0],
+                            'targets': ["id"],
                             'checkboxes': {
                                 'selectRow': true
                             },
@@ -188,7 +188,7 @@
                         {
                             orderable: false,
                             className: 'select-checkbox',
-                            targets: [0]
+                            targets: ["id"]
                         }
                     ],
                     select: {
