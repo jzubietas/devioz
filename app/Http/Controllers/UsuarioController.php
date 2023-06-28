@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\JobFunction;
 use App\Models\Post;
+use App\Models\Session;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -166,7 +167,7 @@ class UsuarioController extends Controller
 
         if ($request->ajax()) {
             //$data = User::get();
-            $data = DB::table('sessions')->get();
+            $data = Session::get();// DB::table('sessions')->get();
             return Datatables::of($data)->addIndexColumn()
                 /*->addColumn('role',function($row){
                     if(!empty($row->getRoleNames()))
