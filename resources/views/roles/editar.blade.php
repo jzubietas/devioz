@@ -147,9 +147,6 @@
                         {data: 'action', name: 'action', orderable: false, searchable: false},
 
                         {data: 'name', name: 'name'},
-                        //{data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                        //{data: 'email', name: 'email'},
-                        //{data: 'role', name: 'role'},
                     ],
                     buttons:[
                         {extend:'copy',className:'btn-sm'},
