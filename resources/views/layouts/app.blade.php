@@ -20,6 +20,10 @@
 
     <link href="{{ asset('plugins/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('plugins/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css') }}" rel="stylesheet" />
+
+    <link href="{{ asset('plugins/select2/dist/css/select2.min.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+
     <style>
         .app-sidebar .menu .menu-item .menu-icon-img
         {
@@ -1056,7 +1060,7 @@
 <script src="{{ asset('plugins/pdfmake/build/vfs_fonts.js') }}" ></script>
 <script src="{{ asset('plugins/jszip/dist/jszip.min.js') }}" ></script>
 
-
+<script src="{{ asset('plugins/select2/dist/js/select2.min.js') }}" ></script>
 
 
 <script src="{{ asset('plugins/@highlightjs/cdn-assets/highlight.min.js') }}" ></script>
@@ -1064,6 +1068,12 @@
 
 @stack('js')
 @yield('js')
+
+<script>
+    $("select").select2({
+        theme: "bootstrap-5",
+    });
+</script>
 
 </body>
 </html>
