@@ -67,7 +67,7 @@
 
 @section('js')
     <script>
-        window.onload = function(){
+        $(document).ready(function () {
 
 
             let table = $("#jobsfunction").DataTable({
@@ -87,7 +87,7 @@
                 },
             });
 
-        };
+        });
         /*document.addEventListener('DOMContentLoaded', function () {
 
 
