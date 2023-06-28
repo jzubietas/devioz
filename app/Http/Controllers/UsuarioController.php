@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\JobFunction;
 use App\Models\Post;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 //agregamos lo siguiente
 use App\Models\User;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +24,7 @@ class UsuarioController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return Application|Factory|View|Response
      */
     public function index(Request $request)
     {
@@ -66,7 +70,7 @@ class UsuarioController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -81,7 +85,7 @@ class UsuarioController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -144,7 +148,7 @@ class UsuarioController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
@@ -154,11 +158,48 @@ class UsuarioController extends Controller
         return view('usuarios.show',compact('user','roles','userRole'));
     }
 
+    public function showSessions(Request $request)
+    {
+        $sessionData = DB::table('sessions')->select('ip_address')->groupBy('ip_address')->distinct()->get();
+        $uniqueViewvers = $sessionData;
+        //$uniqueViewvers->count();
+
+        if ($request->ajax()) {
+            //$data = User::get();
+            $data = DB::table('sessions')->get();
+            return Datatables::of($data)->addIndexColumn()
+                /*->addColumn('role',function($row){
+                    if(!empty($row->getRoleNames()))
+                    {
+                        foreach ($row->getRoleNames() as $v) {
+                            return '<label class="badge badge-success text-dark">' . $v . '</label>';
+                        }
+                    }
+                    return '';
+                })*/
+                ->addColumn('action', function($row){
+                    $btn = [];
+
+                    //$btn[] = '<a class="btn btn-info" href="'.route('usuarios.show',$row->id).'">Detalle</a>';
+                    //$btn[] = '<a class="btn btn-primary" href="'.route('usuarios.edit',$row->id).'">Actualizar</a>';
+
+                    return join('', $btn);
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+        return view('sessions.index', [
+            //'permissions' => $permissions
+        ]);
+
+
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit($id)
     {
@@ -177,7 +218,7 @@ class UsuarioController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, $id)
     {
@@ -208,7 +249,7 @@ class UsuarioController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {
