@@ -129,10 +129,22 @@
                         //{data: 'email', name: 'email'},
                         //{data: 'role', name: 'role'},
                     ],
-                    buttons:[{extend:'copy',className:'btn-sm'},{extend:'csv',className:'btn-sm'},{extend:'excel',className:'btn-sm'},{extend:'pdf',className:'btn-sm'},{extend:'print',className:'btn-sm'}],
+                    buttons:[
+                        {extend:'copy',className:'btn-sm'},
+                        {extend:'csv',className:'btn-sm'},
+                        {extend:'excel',className:'btn-sm'},
+                        {extend:'pdf',className:'btn-sm'},
+                        {extend:'print',className:'btn-sm'},
+                        'selectAll',
+                        'selectNone'
+                    ],
                     responsive:true,
                     language: {
                         url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json',
+                        buttons: {
+                            selectAll: "Select all items",
+                            selectNone: "Select none"
+                        }
                     },
                     columnDefs: [
                         {
@@ -145,7 +157,7 @@
                         style: 'multi',
                         selector: 'td:first-child'
                     },
-                    order: [[0, 'asc']]
+                    order: [[0, 'asc']], 
                 });
 
             $(document).on('click','button[type=submit]',function(e){
