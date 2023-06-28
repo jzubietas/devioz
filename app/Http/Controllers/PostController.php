@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use DataTables;
@@ -75,7 +78,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param Post $post
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -89,8 +92,8 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
+     * @param Post $post
+     * @return Application|Factory|View
      */
     public function edit($id)
     {
@@ -103,7 +106,7 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Post  $post
+     * @param Post $post
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -126,7 +129,7 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param Post $post
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

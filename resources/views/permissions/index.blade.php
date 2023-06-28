@@ -5,10 +5,10 @@
     <h1 class="mb-3"></h1>
 
     <div class="bg-light p-4 rounded">
-        <h2>Permissions</h2>
+        <h2>Permisos</h2>
         <div class="lead">
-            Manage your permissions here.
-            <a href="{{ route('permissions.create') }}" class="btn btn-primary btn-sm float-right">Add permissions</a>
+            Administra tus permisos aqui.
+            <a href="{{ route('permissions.create') }}" class="btn btn-primary btn-sm float-right">Agregar permiso</a>
         </div>
 
         <div class="mt-2">
@@ -19,9 +19,9 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Guard</th>
-                <th scope="col">Editar</th>
+                <th scope="col">Permiso</th>
+                <th scope="col">Ambito</th>
+                <th scope="col">Acciones</th>
             </tr>
             </thead>
             <tbody></tbody>
