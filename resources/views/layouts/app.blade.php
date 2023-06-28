@@ -1070,9 +1070,14 @@
 @yield('js')
 
 <script>
-    $("select").select2({
-        theme: "bootstrap-5",
-    });
+    $(document).ready(function () {
+        $(document).on('select2:open', () => {
+            document.querySelector('.select2-search__field').focus();
+        });
+        $("select").select2({
+            theme: "bootstrap-5",
+        });
+    })
 </script>
 
 </body>
