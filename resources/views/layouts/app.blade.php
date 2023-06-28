@@ -38,7 +38,8 @@
 
         .select2-search { background-color: red; }
         .select2-search input { background-color: green; }
-        .select2-selection__rendered{ color: white; }
+        .select2-selection__rendered{ color: white !important; }
+        
         .select2-results { background-color: yellow; }
     </style>
 
