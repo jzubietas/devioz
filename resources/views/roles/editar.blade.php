@@ -111,7 +111,7 @@
 @section('js')
     <script type="text/javascript">
         $( document ).ready(function() {
-            let table = new DataTable('#permissions',
+            let table = $('#permissions').DataTable(
                 {
                     dom:'<"row"<"col-sm-5"B><"col-sm-7"fr>>t<"row"<"col-sm-5"i><"col-sm-7"p>>',
                     processing: true,
@@ -122,7 +122,6 @@
                             query.user = user
                         }
                     },
-                    ajax: "{{ route('permissions.index') }}",
                     'columnDefs': [{
                         'targets': [0], /* column index */
                         'orderable': false, /* true or false */
