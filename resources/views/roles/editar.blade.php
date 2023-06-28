@@ -87,6 +87,7 @@
                             <table id="permissions" class="table table-bordered permissions">
                                 <thead>
                                 <tr>
+                                    <th scope="col" class="align-middle">Item</th>
                                     <th >Action</th>
                                     <th>No</th>
                                     <th>Permiso</th>
@@ -129,6 +130,15 @@
                     },*/
                     ajax: "{{ route('permissions.index') }}",
                     columns: [
+                        {
+                            "data": "id",
+                            'targets': [0],
+                            'checkboxes': {
+                                'selectRow': true
+                            },
+                            defaultContent: '',
+                            orderable: false,
+                        },
                         {data: 'action', name: 'action', orderable: false, searchable: false},
 
                         {data: 'name', name: 'name'},
@@ -177,7 +187,7 @@
                         {
                             orderable: false,
                             className: 'select-checkbox',
-                            targets: 0
+                            targets: [0]
                         }
                     ],
                     select: {
