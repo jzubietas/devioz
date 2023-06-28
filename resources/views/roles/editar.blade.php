@@ -110,6 +110,13 @@
 @section('js')
     <script type="text/javascript">
         $(document).ready(function () {
+
+            var userSelected = [];
+            var userUnselected = [];
+            var rowsToSelect = [];
+            var rowsToDeselect = [];
+            var selectAll = false;
+
             let table = $("#permissions").DataTable({
                     dom:'<"row"<"col-sm-5"B><"col-sm-7"fr>>t<"row"<"col-sm-5"i><"col-sm-7"p>>',
                     processing: true,
@@ -135,8 +142,28 @@
                         {extend:'excel',className:'btn-sm'},
                         {extend:'pdf',className:'btn-sm'},
                         {extend:'print',className:'btn-sm'},
-                        'selectAll',
-                        'selectNone'
+                        {
+                            text: 'Todos',
+                            action: function ( e, dt, node, config ) {
+                                selectAll = true;
+
+                                // Clear all user selections
+                                userSelected = [];
+                                userUnselected = [];
+                                dt.draw( false );
+                            }
+                        },
+                        {
+                            text: 'Ninguno',
+                            action: function ( e, dt, node, config ) {
+                                selectAll = false;
+
+                                // Clear all user selections
+                                userSelected = [];
+                                userUnselected = [];
+                                dt.draw( false );
+                            }
+                        }
                     ],
                     responsive:true,
                     language: {
@@ -155,10 +182,153 @@
                     ],
                     select: {
                         style: 'multi',
-                        selector: 'td:first-child'
+                        info:false
+                        //selector: 'td:first-child'
                     },
                     order: [[0, 'asc']],
                 });
+
+            table.on('draw', function () {
+
+
+                if ( selectAll === true) {
+
+                    // Select all rows on page unless it is user unselected
+                    rowsToSelect = table.rows().ids().toArray()
+                        .reduce(function (result, value) {
+                            value = '#' + value;
+                            if ( userUnselected.indexOf(value) === -1 ) {
+                                result.push(value);
+                            }
+                            return result;
+                        }, []);
+
+                    // Clear deselect all id's
+                    rowsToDeselect = [];
+
+                } else if ( selectAll === false ) {
+
+                    // deselect all rows on page unless its user selected
+                    rowsToDeselect = table.rows().ids().toArray()
+                        .reduce(function (result, value) {
+                            value = '#' + value;
+                            if ( userSelected.indexOf(value) === -1 ) {
+                                result.push(value);
+                            }
+                            return result;
+                        }, []);
+
+                    // Clear select all id's
+                    rowsToSelect = [];
+
+                }
+
+                console.log('draw');
+                console.log(rowsToSelect,  userSelected );
+                console.log(rowsToDeselect,  userUnselected );
+
+                table.rows( rowsToSelect.concat( userSelected ) ).select();
+
+                // Delay row deselctions to allow for DOM update of row().select()
+                setTimeout( function ()  {
+                    table.rows( rowsToDeselect.concat( userUnselected ) ).deselect();
+                }, 0);
+
+
+                // Datatables removes our custom element if 0 records are displayed due to filtering
+                if ( table.page.info().recordsDisplay === 0 ) {
+                    var selected = 0;
+
+                    if ( selectAll ) {
+                        selected = table.page.info().recordsTotal - userUnselected.length;
+                    } else {
+                        selected = userSelected.length;
+                    }
+
+                    if ( selected === 0) {
+                        $('.select-info').remove();
+                    } else {
+                        var rowsSelected = '1 row selected';
+                        if ( selected > 1 ) {
+                            rowsSelected = selected + ' rows selected';
+                        }
+                        var span = '<span class="select-info">' +
+                            '<span class="select-item">' + rowsSelected + '</span>' +
+                            '</span>';
+                        $('.select-info').remove();
+                        $('#example_info').append( $(span) );
+                    }
+                }
+            });
+
+            table.on('select deselect', function (e, dt, type, indexes) {
+
+
+                var selected = 0;
+
+                if ( selectAll ) {
+                    selected = table.page.info().recordsTotal - userUnselected.length;
+                } else {
+                    selected = userSelected.length;
+                }
+
+                if ( selected === 0) {
+                    $('.select-info').remove();
+                } else {
+                    var rowsSelected = '1 row selected';
+                    if ( selected > 1 ) {
+                        rowsSelected = selected + ' rows selected';
+                    }
+                    var span = '<span class="select-info">' +
+                        '<span class="select-item">' + rowsSelected + '</span>' +
+                        '</span>';
+                    $('.select-info').remove();
+                    $('#example_info').append( $(span) );
+                }
+
+            });
+
+            table.on('user-select', function (e, dt, type, cell, originalEvent) {
+
+
+                var id = '#' + table.row(cell.index().row).id();
+                var selectedIndex = userSelected.indexOf( id );
+                var unselectedIndex = userUnselected.indexOf( id );
+
+                if ( selectAll ) {
+
+                    // Toggle user unselected
+                    if ( unselectedIndex !== -1 ) {
+                        userUnselected.splice( unselectedIndex, 1 );
+                    } else {
+                        userUnselected.push( id );
+                    }
+
+                    // Remove from user selected
+                    if ( selectedIndex !== -1 ) {
+                        userSelected.splice( selectedIndex, 1 );
+                    }
+                } else {
+
+                    // Toggle user selected
+                    if ( selectedIndex !== -1 ) {
+                        userSelected.splice( selectedIndex, 1 );
+                    } else {
+                        userSelected.push( id );
+                    }
+
+                    // Remove from unselected
+                    if ( unselectedIndex !== -1 ) {
+                        userUnselected.splice( unselectedIndex, 1 );
+                    }
+
+                }
+
+                console.log('user-select');
+                console.log(userSelected);
+                console.log(userUnselected);
+
+            });
 
             $(document).on('click','button[type=submit]',function(e){
                 e.preventDefault()
