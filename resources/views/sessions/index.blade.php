@@ -43,9 +43,10 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Name</th>
+                                <th>IP</th>
+                                <th>Ultima Actividad</th>
                                 <th>Email</th>
-                                <th>Roles</th>
+                                <th>Rol</th>
                                 <th width="280px">Action</th>
                             </tr>
                         </thead>
@@ -79,7 +80,8 @@
                     ajax: "{{ route('usuarios.showSessions') }}",
                     columns: [
                         {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                        {data: 'id', name: 'id'},
+                        {data: 'ip_address', name: 'ip_address'},
+                        {data: 'last_activity', name: 'last_activity'},
                         {data: 'email', name: 'email'},
                         {data: 'name', name: 'name'},
                         {data: 'action', name: 'action', orderable: false, searchable: false},
