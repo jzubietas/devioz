@@ -94,9 +94,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $rol = Post::find($id);
+        $post = Post::find($id);
 
-        return view('posts.editar',compact('rol'));
+        return view('posts.editar',compact('post'));
     }
 
     /**
