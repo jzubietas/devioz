@@ -1058,6 +1058,7 @@
 <script src="{{ asset('plugins/datatables.net/js/jquery.dataTables.min.js') }}" ></script>
 <script src="{{ asset('plugins/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}" ></script>
 
+<script src="{{ asset('plugins/datatables.net-select/js/dataTables.select.min.js') }}" ></script>
 <script src="{{ asset('plugins/datatables.net-select-bs5/js/select.bootstrap5.min.js') }}" ></script>
 
 <script src="{{ asset('plugins/datatables.net-responsive/js/dataTables.responsive.min.js') }}" ></script>
