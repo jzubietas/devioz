@@ -110,7 +110,7 @@
 
 @section('js')
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
+        $( document ).ready(function() {
             let table = new DataTable('#permissions',
                 {
                     dom:'<"row"<"col-sm-5"B><"col-sm-7"fr>>t<"row"<"col-sm-5"i><"col-sm-7"p>>',
@@ -150,6 +150,9 @@
                         url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json',
                     },
                 });
+        })
+        document.addEventListener('DOMContentLoaded', function () {
+
         });
     </script>
 @stop
