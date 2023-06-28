@@ -196,7 +196,7 @@
                         //info:false
                         selector: 'td:first-child'
                     },
-                    order: [[0, 'desc']],
+                    order: [["id", 'desc']],
                 });
 
             table.on('draw', function () {
