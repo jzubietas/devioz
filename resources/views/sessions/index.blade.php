@@ -80,8 +80,8 @@
                     columns: [
                         {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                         {data: 'id', name: 'id'},
-                        {data: 'user_id', name: 'user_id'},
-                        {data: 'ip_address', name: 'ip_address'},
+                        {data: 'email', name: 'email'},
+                        {data: 'name', name: 'name'},
                         {data: 'action', name: 'action', orderable: false, searchable: false},
                     ],
                     buttons:[{extend:'copy',className:'btn-sm'},{extend:'csv',className:'btn-sm'},{extend:'excel',className:'btn-sm'},{extend:'pdf',className:'btn-sm'},{extend:'print',className:'btn-sm'}],

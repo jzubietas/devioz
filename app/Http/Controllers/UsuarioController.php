@@ -161,13 +161,22 @@ class UsuarioController extends Controller
 
     public function showSessions(Request $request)
     {
-        $sessionData = DB::table('sessions')->select('ip_address')->groupBy('ip_address')->distinct()->get();
-        $uniqueViewvers = $sessionData;
+        //$sessionData = DB::table('sessions')->select('ip_address')->groupBy('ip_address')->distinct()->get();
+        //$uniqueViewvers = $sessionData;
         //$uniqueViewvers->count();
 
         if ($request->ajax()) {
             //$data = User::get();
-            $data = Session::get();// DB::table('sessions')->get();
+            $data = Session::query()
+                ->join('users as u','sessions.user_id','u.id')
+                ->select([
+                    'sessions.id',
+                    'sessions.user_id',
+                    'sessions.ip_address',
+                    'u.email',
+                    'u.name',
+                ])
+                ->get();// DB::table('sessions')->get();
             return Datatables::of($data)->addIndexColumn()
                 /*->addColumn('role',function($row){
                     if(!empty($row->getRoleNames()))
