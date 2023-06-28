@@ -121,8 +121,12 @@
             var table = $("#permissions").DataTable({
                     dom: 'Bfrtip',
                     //dom:'<"row"<"col-sm-5"B><"col-sm-7"fr>>t<"row"<"col-sm-5"i><"col-sm-7"p>>',
-                    processing: true,
-                    serverSide: true,
+                    responsive: true,
+                    "bPaginate":true,
+                    "bFilter":true,
+                    "bInfo":true,
+                    //processing: true,
+                    //serverSide: true,
                     /*ajax: {
                         url: "{{ route('permissions.index.user') }}",
                         data: function (query) {
@@ -176,7 +180,6 @@
                             }
                         }
                     ],
-                    responsive:true,
                     language: {
                         url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json',
                         buttons: {
