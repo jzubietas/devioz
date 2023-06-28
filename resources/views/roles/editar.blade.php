@@ -137,7 +137,7 @@
                     columns: [
                         {
                             "data": "id",
-                            'targets': ["id"],
+                            'targets': [0],
                             'checkboxes': {
                                 'selectRow': true
                             },
