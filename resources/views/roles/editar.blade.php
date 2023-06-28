@@ -147,6 +147,23 @@
                     },
                     order: [[0, 'asc']]
                 });
+
+            $(document).on('click','button[type=submit]',function(e){
+                e.preventDefault()
+
+                var table = $('#permissions').DataTable();
+                var rows = table.rows({selected: true}).data();
+                console(rows.length);
+                /*$.each(rows, function(index, rowId) {
+                    var data = rows.data();
+                    console.log(data);
+                    console.log(data[1]);
+                });*/
+
+                return true;
+            })
+
         });
     </script>
+
 @stop
