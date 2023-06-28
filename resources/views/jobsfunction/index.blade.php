@@ -69,7 +69,10 @@
     <script>
         $(document).ready(function () {
 
-            let table = $("#jobsfunction").DataTable({
+            var tables = $('#jobsfunction').DataTable();
+
+
+            let table = $("#jobsfunctions").DataTable({
                 dom:'<"row"<"col-sm-5"B><"col-sm-7"fr>>t<"row"<"col-sm-5"i><"col-sm-7"p>>',
                 processing: true,
                 serverSide: true,
