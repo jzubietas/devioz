@@ -142,10 +142,10 @@
                         }
                     ],
                     select: {
-                        style: 'os',
+                        style: 'multi',
                         selector: 'td:first-child'
                     },
-                    order: [[1, 'asc']]
+                    order: [[0, 'asc']]
                 });
         });
     </script>
