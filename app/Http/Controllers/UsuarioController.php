@@ -188,6 +188,9 @@ class UsuarioController extends Controller
                     }
                     return '';
                 })*/
+                ->editColumn('last_activity',function($row){
+                    return Carbon::createFromTimestamp($row->last_activity);
+                })
                 ->addColumn('action', function($row){
                     $btn = [];
 
