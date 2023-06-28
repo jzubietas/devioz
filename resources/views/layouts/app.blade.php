@@ -1064,7 +1064,7 @@
 <script src="{{ asset('plugins/pdfmake/build/vfs_fonts.js') }}" ></script>
 <script src="{{ asset('plugins/jszip/dist/jszip.min.js') }}" ></script>
 
-<script src="{{ asset('plugins/select2/dist/js/select2.min.js') }}" ></script>
+<script src="{{ asset('plugins/select2/dist/js/select2.full.min.js') }}" ></script>
 
 
 <script src="{{ asset('plugins/@highlightjs/cdn-assets/highlight.min.js') }}" ></script>
