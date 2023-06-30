@@ -10,6 +10,8 @@
 
     <h1 class="page-header">Roles  <small>Administracion</small></h1>
 
+    <input type="hidden" id="rol_id" name="rol_id" value="{{ $role->id }}">
+
     <div class="row">
         <div class="col-lg-12 ">
             <div class="float-md-start">
@@ -127,13 +129,17 @@
                     "bInfo":true,
                     //processing: true,
                     //serverSide: true,
-                    /*ajax: {
+                    columnDefs: [{
+                        'targets': [0], /* column index */
+                        'orderable': false, /* true or false */
+                    }],
+                    ajax: {
                         url: "{{ route('permissions.index.user') }}",
                         data: function (query) {
-                            query.user = user
+                            query.rol_id = $("#rol_id").val()
                         }
-                    },*/
-                    ajax: "{{ route('permissions.index') }}",
+                    },
+                    //ajax: "{{ route('permissions.index') }}",
                     columns: [
                         {
                             "data": "id",
