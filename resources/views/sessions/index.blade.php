@@ -8,15 +8,15 @@
         <li class="breadcrumb-item active">Buttons</li>
     </ol>
 
-    <h1 class="page-header">Cargo  <small></small></h1>
+    <h1 class="page-header">Users  <small>Management</small></h1>
 
     <div class="row">
         <div class="col-lg-12 ">
             <div class="float-md-start">
-                <h2>Administracion de Cargos</h2>
+                <h2>Lista de Sesiones de Usuarios</h2>
             </div>
             <div class="float-md-end">
-                <a class="btn btn-success" href="{{ route('posts.create') }}"> Nuevo Cargo</a>
+                <a class="btn btn-success" href="{{ route('usuarios.create') }}"> Crear nuevo usuario</a>
             </div>
         </div>
 
@@ -39,12 +39,15 @@
                 </div>
 
                 <div class="panel-body">
-
-                    <table id="posts" class="table table-bordered users">
+                    <table id="users" class="table table-bordered users">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Name</th>
+                                <th>IP</th>
+                                <th>Ultima Actividad</th>
+                                <th>User Agente</th>
+                                <th>Email</th>
+                                <th>Rol</th>
                                 <th width="280px">Action</th>
                             </tr>
                         </thead>
@@ -63,18 +66,25 @@
         </div>
     @endif
 
+
+    <p class="text-center text-primary d-none"><small>DevIoz.com</small></p>
 @endsection
 
 @section('js')
     <script type="text/javascript">
         $(document).ready(function () {
-            let table = $("#posts").DataTable({
+            let table = $("#users").DataTable(
+                {
                     dom:'<"row"<"col-sm-5"B><"col-sm-7"fr>>t<"row"<"col-sm-5"i><"col-sm-7"p>>',
                     processing: true,
                     serverSide: true,
-                    ajax: "{{ route('posts.index') }}",
+                    ajax: "{{ route('usuarios.showSessions') }}",
                     columns: [
                         {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                        {data: 'ip_address', name: 'ip_address'},
+                        {data: 'last_activity', name: 'last_activity'},
+                        {data: 'user_agent', name: 'user_agent'},
+                        {data: 'email', name: 'email'},
                         {data: 'name', name: 'name'},
                         {data: 'action', name: 'action', orderable: false, searchable: false},
                     ],

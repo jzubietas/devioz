@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\JobFunction;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Queue\Jobs\Job;
 use Illuminate\Support\Arr;
@@ -53,7 +54,7 @@ class JobFunctionController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -74,7 +75,7 @@ class JobFunctionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\JobFunction  $jobFunction
+     * @param JobFunction $jobFunction
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -86,8 +87,8 @@ class JobFunctionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\JobFunction  $jobFunction
-     * @return \Illuminate\Http\Response
+     * @param JobFunction $jobFunction
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit($id)
     {
@@ -98,39 +99,28 @@ class JobFunctionController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\JobFunction  $jobFunction
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return RedirectResponse
      */
     public function update(Request $request, $id)
     {
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required|email|unique:users,email,'.$id,
-            'password' => 'same:confirm-password',
-            'roles' => 'required'
         ]);
 
         $input = $request->all();
-        if(!empty($input['password'])){
-            $input['password'] = Hash::make($input['password']);
-        }else{
-            $input = Arr::except($input,array('password'));
-        }
 
-        $user = User::find($id);
-        $user->update($input);
-        DB::table('model_has_roles')->where('model_id',$id)->delete();
+        $jobfunction = JobFunction::find($id);
+        $jobfunction->update($input);
 
-        $user->assignRole($request->input('roles'));
-
-        return redirect()->route('usuarios.index');
+        return redirect()->route('jobsfunction.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\JobFunction  $jobFunction
+     * @param JobFunction $jobFunction
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

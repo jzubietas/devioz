@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Permission;
 use DataTables;
@@ -12,7 +17,7 @@ class PermissionsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View|Response
      */
     public function index(Request $request)
     {
@@ -20,8 +25,14 @@ class PermissionsController extends Controller
 
         if ($request->ajax()) {
             $data = Permission::get();
-            return Datatables::of($data)->addIndexColumn()
+            return Datatables::of($data)
+                //->addIndexColumn()
                 ->addColumn('action', function($row){
+                    $btn = [];
+                    $btn[] = '<a class="btn btn-info" href="'.route('permissions.show',$row->id).'">Ver</a>';
+                    $btn[] = '<a class="btn btn-primary" href="'.route('permissions.edit',$row->id).'">Actualizar</a>';
+                    //<a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-info btn-sm">Edit</a>
+                    return join('', $btn);
                     //<a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-info btn-sm">Edit</a>
 
                     /*
@@ -51,16 +62,19 @@ class PermissionsController extends Controller
             $data = Permission::get();
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function($row){
+                    $btn = [];
+                    $btn[] = '<a class="btn btn-info" href="'.route('permissions.show',$row->id).'">Ver</a>';
+                    $btn[] = '<a class="btn btn-primary" href="'.route('permissions.edit',$row->id).'">Actualizar</a>';
                     //<a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-info btn-sm">Edit</a>
-
+                    return join('', $btn);
                     /*
                      * {!! Form::open(['method' => 'DELETE','route' => ['permissions.destroy', $permission->id],'style'=>'display:inline']) !!}
                             {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
                             {!! Form::close() !!}
                      * */
 
-                    $btn = '<a href="javascript:void(0)" class="btn btn-primary btn-sm">View</a>';
-                    return $btn;
+                    //$btn = '<a href="javascript:void(0)" class="btn btn-primary btn-sm">View</a>';
+                    //return $btn;
                 })
                 ->rawColumns(['action'])
                 ->make(true);
@@ -74,7 +88,7 @@ class PermissionsController extends Controller
     /**
      * Show form for creating permissions
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -84,8 +98,8 @@ class PermissionsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -99,14 +113,24 @@ class PermissionsController extends Controller
             ->withSuccess(__('Permission created successfully.'));
     }
 
+    public function show($id)
+    {
+        $permission = Permission::find($id);
+        //$roles = Role::pluck('name','name')->all();
+        //$userRole = $user->roles->pluck('name','name')->all();
+        return view('permissions.show',compact('permission'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Permission  $post
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return Application|Factory|View
      */
-    public function edit(Permission $permission)
+    public function edit($id)
     {
+        $permission = Permission::find($id);
+
         return view('permissions.edit', [
             'permission' => $permission
         ]);
@@ -115,9 +139,9 @@ class PermissionsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  Permission  $permission
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, Permission $permission)
     {
@@ -128,20 +152,20 @@ class PermissionsController extends Controller
         $permission->update($request->only('name'));
 
         return redirect()->route('permissions.index')
-            ->withSuccess(__('Permission updated successfully.'));
+            ->withSuccess(__('Permiso actualizado exitosamente.'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
+     * @param Permission $permission
+     * @return Response
      */
     public function destroy(Permission $permission)
     {
         $permission->delete();
 
         return redirect()->route('permissions.index')
-            ->withSuccess(__('Permission deleted successfully.'));
+            ->withSuccess(__('Permiso eliminado exitosamente.'));
     }
 }

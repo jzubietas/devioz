@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="bg-light p-4 rounded">
-        <h2>Edit permission</h2>
+        <h2>Editar permiso</h2>
         <div class="lead">
-            Editing permission.
+            Editando permiso.
         </div>
 
         <div class="container mt-4">
@@ -13,11 +13,11 @@
                 @method('patch')
                 @csrf
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input value="{{ $permission->name }}" 
-                        type="text" 
-                        class="form-control" 
-                        name="name" 
+                    <label for="name" class="form-label">Nombre permiso</label>
+                    <input value="{{ $permission->name }}"
+                        type="text"
+                        class="form-control"
+                        name="name"
                         placeholder="Name" required>
 
                     @if ($errors->has('name'))
@@ -25,8 +25,8 @@
                     @endif
                 </div>
 
-                <button type="submit" class="btn btn-primary">Save permission</button>
-                <a href="{{ route('permissions.index') }}" class="btn btn-default">Back</a>
+                <button type="submit" class="btn btn-primary">Salvar permiso</button>
+                <a href="{{ route('permissions.index') }}" class="btn btn-default">Volver</a>
             </form>
         </div>
 

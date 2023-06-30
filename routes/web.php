@@ -53,6 +53,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('tools', ToolController::class);
 });
 
+Route::any('usuarios.showSessions', [UsuarioController::class, 'showSessions'])->name('usuarios.showSessions');
 Route::any('permissions.index.user', [PermissionsController::class, 'indexuser'])->name('permissions.index.user');
 
 Route::post('thoughts.update',[ThoughtController::class,'update'])->name('thoughts.update');

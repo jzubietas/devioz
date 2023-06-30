@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="menu-item">
-                    <a href="{{ route('permissions.index') }}" class="menu-link"><div class="menu-text">Actividad de usuario</div></a>
+                    <a href="{{ route('usuarios.showSessions') }}" class="menu-link"><div class="menu-text">Actividad de usuario</div></a>
                 </div>
 
                 {{--<div class="menu-item">

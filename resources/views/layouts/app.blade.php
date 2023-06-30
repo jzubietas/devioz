@@ -15,8 +15,15 @@
     {{--<script src="{{ asset('plugins/ionicons/dist/ionicons/ionicons.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>--}}
 
     <link href="{{ asset('plugins/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
+
+    <link href="{{ asset('plugins/datatables.net-select-bs5/css/select.bootstrap5.min.css') }}" rel="stylesheet" />
+
     <link href="{{ asset('plugins/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('plugins/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css') }}" rel="stylesheet" />
+
+    <link href="{{ asset('plugins/select2/dist/css/select2.min.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+
     <style>
         .app-sidebar .menu .menu-item .menu-icon-img
         {
@@ -28,6 +35,18 @@
         {
             margin-bottom:16px !important;
         }
+
+        .select2-search { background-color: red; }
+        .select2-search--dropdown{
+            background-color: #000;
+        }
+        .select2-search__field{
+            background-color: #000;
+        }
+        .select2-search input { background-color: green; }
+        .select2-selection__rendered{ color: white !important; }
+
+        .select2-results { background-color: yellow; }
     </style>
 
     @stack('css')
@@ -1032,41 +1051,49 @@
 @include('profile.change_password')
 
 
-<script src="{{ asset('js/vendor.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('js/app.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
+<script src="{{ asset('js/vendor.min.js') }}" ></script>
+<script src="{{ asset('js/app.min.js') }}" ></script>
 
 
-<script src="{{ asset('plugins/datatables.net/js/jquery.dataTables.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/datatables.net-responsive/js/dataTables.responsive.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/datatables.net-buttons/js/dataTables.buttons.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/datatables.net-buttons/js/buttons.colVis.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/datatables.net-buttons/js/buttons.flash.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/datatables.net-buttons/js/buttons.html5.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/datatables.net-buttons/js/buttons.print.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/pdfmake/build/pdfmake.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/pdfmake/build/vfs_fonts.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('plugins/jszip/dist/jszip.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
+<script src="{{ asset('plugins/datatables.net/js/jquery.dataTables.min.js') }}" ></script>
+<script src="{{ asset('plugins/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}" ></script>
+
+<script src="{{ asset('plugins/datatables.net-select/js/dataTables.select.min.js') }}" ></script>
+<script src="{{ asset('plugins/datatables.net-select-bs5/js/select.bootstrap5.min.js') }}" ></script>
+
+<script src="{{ asset('plugins/datatables.net-responsive/js/dataTables.responsive.min.js') }}" ></script>
+<script src="{{ asset('plugins/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js') }}" ></script>
+<script src="{{ asset('plugins/datatables.net-buttons/js/dataTables.buttons.min.js') }}" ></script>
+<script src="{{ asset('plugins/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js') }}" ></script>
+<script src="{{ asset('plugins/datatables.net-buttons/js/buttons.colVis.min.js') }}" ></script>
+<script src="{{ asset('plugins/datatables.net-buttons/js/buttons.flash.min.js') }}" ></script>
+<script src="{{ asset('plugins/datatables.net-buttons/js/buttons.html5.min.js') }}" ></script>
+<script src="{{ asset('plugins/datatables.net-buttons/js/buttons.print.min.js') }}" ></script>
+<script src="{{ asset('plugins/pdfmake/build/pdfmake.min.js') }}" ></script>
+<script src="{{ asset('plugins/pdfmake/build/vfs_fonts.js') }}" ></script>
+<script src="{{ asset('plugins/jszip/dist/jszip.min.js') }}" ></script>
+
+<script src="{{ asset('plugins/select2/dist/js/select2.full.min.js') }}" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/i18n/es.js"></script>
+
+<script src="{{ asset('plugins/@highlightjs/cdn-assets/highlight.min.js') }}" ></script>
+<script src="{{ asset('js/demo/render.highlight.js') }}" ></script>
 
 @stack('js')
 @yield('js')
 
-
-<script src="{{ asset('plugins/@highlightjs/cdn-assets/highlight.min.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script src="{{ asset('js/demo/render.highlight.js') }}" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3Q0VGQKY3" type="defa15012573cb4ced7d9c95-text/javascript"></script>
-<script type="defa15012573cb4ced7d9c95-text/javascript">
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Y3Q0VGQKY3');
+<script>
+    $(document).ready(function () {
+        $.fn.select2.defaults.set('language', 'es');
+        $(document).on('select2:open', () => {
+            document.querySelector('.select2-search__field').focus();
+        });
+        $("select").select2({
+            theme: "bootstrap-5",
+            containerCssClass : "bg-dark text-white"
+        });
+    })
 </script>
-<script src="{{ asset('cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js') }}" data-cf-settings="defa15012573cb4ced7d9c95-|49" defer></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7cb9109cd87e9534","version":"2023.4.0","r":1,"token":"4db8c6ef997743fda032d4f73cfeff63","si":100}' crossorigin="anonymous"></script>
+
 </body>
 </html>

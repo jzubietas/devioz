@@ -67,24 +67,26 @@
 
 @section('js')
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
-            let table = new DataTable('#jobsfunction',
-                {
-                    dom:'<"row"<"col-sm-5"B><"col-sm-7"fr>>t<"row"<"col-sm-5"i><"col-sm-7"p>>',
-                    processing: true,
-                    serverSide: true,
-                    ajax: "{{ route('jobsfunction.index') }}",
-                    columns: [
-                        {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                        {data: 'name', name: 'name'},
-                        {data: 'action', name: 'action', orderable: false, searchable: false},
-                    ],
-                    buttons:[{extend:'copy',className:'btn-sm'},{extend:'csv',className:'btn-sm'},{extend:'excel',className:'btn-sm'},{extend:'pdf',className:'btn-sm'},{extend:'print',className:'btn-sm'}],
-                    responsive:true,
-                    language: {
-                        url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json',
-                    },
-                });
+        $(document).ready(function () {
+
+            let table = $("#jobsfunction").DataTable({
+                dom:'<"row"<"col-sm-5"B><"col-sm-7"fr>>t<"row"<"col-sm-5"i><"col-sm-7"p>>',
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('jobsfunction.index') }}",
+                columns: [
+                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                    {data: 'name', name: 'name'},
+                    {data: 'action', name: 'action', orderable: false, searchable: false},
+                ],
+                buttons:[{extend:'copy',className:'btn-sm'},{extend:'csv',className:'btn-sm'},{extend:'excel',className:'btn-sm'},{extend:'pdf',className:'btn-sm'},{extend:'print',className:'btn-sm'}],
+                responsive:true,
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json',
+                },
+            });
+
         });
+
     </script>
 @stop

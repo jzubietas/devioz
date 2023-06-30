@@ -8,12 +8,12 @@
         <li class="breadcrumb-item active">Buttons</li>
     </ol>
 
-    <h1 class="page-header d-none">Users  <small>Management</small></h1>
+    <h1 class="page-header">Users  <small>Management</small></h1>
 
     <div class="row">
         <div class="col-lg-12 ">
             <div class="float-md-start">
-                <h2>Lista de USuarios Gestion</h2>
+                <h2>Lista de Gestión de Usuarios</h2>
             </div>
             <div class="float-md-end">
                 <a class="btn btn-success" href="{{ route('usuarios.create') }}"> Crear nuevo usuario</a>
@@ -22,7 +22,7 @@
 
         <div class="col-xl-12">
             <div class="panel panel-inverse">
-                <div class="panel-heading d-none">
+                <div class="panel-heading">
                     <h4 class="panel-title">DataTable - Buttons</h4>
                     <div class="panel-heading-btn">
                         <a href="javascript:" class="btn btn-xs btn-icon btn-default" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
@@ -70,8 +70,8 @@
 
 @section('js')
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
-            let table = new DataTable('#users',
+        $(document).ready(function () {
+            let table = $("#users").DataTable(
                 {
                     dom:'<"row"<"col-sm-5"B><"col-sm-7"fr>>t<"row"<"col-sm-5"i><"col-sm-7"p>>',
                     processing: true,
