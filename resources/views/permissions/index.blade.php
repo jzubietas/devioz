@@ -39,7 +39,7 @@
                     serverSide: true,
                     ajax: "{{ route('permissions.index') }}",
                     columns: [
-                        {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                        {data: 'id', name: 'id'},
                         {data: 'name', name: 'name'},
                         {data: 'guard_name', name: 'guard_name'},
                         {data: 'action', name: 'action', orderable: false, searchable: false},
